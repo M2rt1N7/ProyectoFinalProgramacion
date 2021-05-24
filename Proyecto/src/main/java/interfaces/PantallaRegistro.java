@@ -13,9 +13,10 @@ import java.awt.SystemColor;
 public class PantallaRegistro extends JPanel{
 	private JTextField FieldNombreRe;
 	private JPasswordField passwordContraseñaRe;
+	private Ventana ventana;
 	
-	
-	public PantallaRegistro() {
+	public PantallaRegistro(Ventana v) {
+		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelSuperiorRe = new JPanel();

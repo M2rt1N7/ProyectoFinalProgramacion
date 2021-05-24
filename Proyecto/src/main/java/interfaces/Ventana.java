@@ -126,7 +126,7 @@ public class Ventana extends JFrame{
 	public void irApantallaRegistro() {
 		//Si entra lo inicializa para que no de null pointer
 		if(this.pantallaRegistro==null) {
-			this.pantallaRegistro=new PantallaRegistro();
+			this.pantallaRegistro=new PantallaRegistro(this);
 		}
 		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
 		if(this.pantallaUsuario!=null) {
@@ -138,6 +138,7 @@ public class Ventana extends JFrame{
 		//Hace visible la pantalla
 		this.pantallaRegistro.setVisible(true);
 	}
+	
 	
 		
 	}
