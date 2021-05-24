@@ -54,7 +54,7 @@ public class PantallaInicial extends JPanel{
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 		
-		JLabel labelSistema2 = new JLabel("Inventario Inventado SL.");
+		JLabel labelSistema2 = new JLabel("Inventario Seven56 SL.");
 		labelSistema2.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		labelSistema2.setHorizontalAlignment(SwingConstants.CENTER);
 		labelSistema2.setBounds(82, 95, 276, 32);

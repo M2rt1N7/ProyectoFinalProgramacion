@@ -18,6 +18,7 @@ public class Ventana extends JFrame{
 	//Variable de la pantalla de producto
 	private PantallaProducto pantallaProducto;
 	private PantallaUsuario pantallaUsuario;
+	private PantallaRegistro pantallaRegistro;
 	//Para que haya persistencia en toda las ventanas
 	protected Usuario usuarioLogeado;
 	
@@ -77,6 +78,67 @@ public class Ventana extends JFrame{
 		//Hace visible la pantalla
 		this.pantallaUsuario.setVisible(true);
 	}
+	
+	/**
+	 * Método que dirige a la pantalla de producto
+	 */
+	
+	public void irApantallaProducto() {
+		//Si entra lo inicializa para que no de null pointer
+		if(this.pantallaProducto==null) {
+			this.pantallaProducto=new PantallaProducto(this);
+		}
+		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
+		if(this.pantallaInicial!=null) {
+			this.pantallaInicial.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaProducto);
+		//Hace visible la pantalla
+		this.pantallaProducto.setVisible(true);
+	}
+	
+	/**
+	 * Método que regresa a la pantalla de usuario
+	 */
+	
+	public void volverAPantallaUsuario() {
+		
+		//Oculta la pantalla anterior
+		if(this.pantallaUsuario==null) {
+			this.pantallaUsuario=new PantallaUsuario();
+		}
+		if(this.pantallaRegistro!=null) {
+			this.pantallaRegistro.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaUsuario);
+		//Hace visible la pantalla
+		this.pantallaUsuario.setVisible(true);
+	}
+	
+	/**
+	 * Método que dirige a la pantalla de registro
+	 */
+	
+	public void irApantallaRegistro() {
+		//Si entra lo inicializa para que no de null pointer
+		if(this.pantallaRegistro==null) {
+			this.pantallaRegistro=new PantallaRegistro();
+		}
+		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
+		if(this.pantallaUsuario!=null) {
+			this.pantallaUsuario.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaRegistro);
+		//Hace visible la pantalla
+		this.pantallaRegistro.setVisible(true);
+	}
+	
 		
 	}
 

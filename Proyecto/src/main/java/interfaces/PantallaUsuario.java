@@ -7,11 +7,26 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
+
+import clases.Usuario;
+
+import excepciones.ContraseñaIncorrectaException;
+import excepciones.NombreIncorrectoException;
+
 import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.awt.event.ActionEvent;
 
 public class PantallaUsuario extends JPanel{
 	private JTextField campoUsuario;
@@ -29,16 +44,6 @@ public class PantallaUsuario extends JPanel{
 		JLabel lblNewLabel = new JLabel("Control del Sistema ");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelSuperiorUsu.add(lblNewLabel);
-		
-		JPanel panelInferiorUsu = new JPanel();
-		panelInferiorUsu.setBackground(SystemColor.control);
-		add(panelInferiorUsu, BorderLayout.SOUTH);
-		
-		JButton BotonInicio = new JButton("Iniciar sesi\u00F3n");
-		panelInferiorUsu.add(BotonInicio);
-		
-		JButton BotonRegistro = new JButton("Registrarse");
-		panelInferiorUsu.add(BotonRegistro);
 		
 		JPanel panelCentral = new JPanel();
 		panelCentral.setBackground(Color.WHITE);
@@ -65,5 +70,56 @@ public class PantallaUsuario extends JPanel{
 		campoContraseña = new JPasswordField();
 		campoContraseña.setBounds(244, 113, 96, 19);
 		panelCentral.add(campoContraseña);
+		
+		JPanel panelInferiorUsu = new JPanel();
+		panelInferiorUsu.setBackground(SystemColor.control);
+		add(panelInferiorUsu, BorderLayout.SOUTH);
+		
+		JButton BotonInicio = new JButton("Iniciar sesi\u00F3n");
+		BotonInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Captura los datos del formulario de ingreso
+				String usuario = campoUsuario.getText();
+				String contrasenia = new String(campoContraseña.getPassword());
+				// Valida los datos introducidos con los de la base de datos
+				try {
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pruebas1dam", "root",
+							"1018Flutox");
+					Statement st = conexion.createStatement();
+					// Cursor que guarda el resultado de la consulta
+					ResultSet resultado = st.executeQuery("select * from usuario where nombre='" + usuario
+							+ "' and contrasenia='" + contrasenia + "'");
+					// Recorre el ResultSet como si fuera un iterator, si solo da un resultado, se puede usar un if
+					if (resultado.next()) {
+						// Este metodo devuelve el tipo de dato indicandole la columna
+						usuario = resultado.getString("nombre");
+						contrasenia = resultado.getString("contrasenia");
+						//Modifica la variable de ventana
+						ventana.usuarioLogeado = new Usuario(usuario,contrasenia);
+						JOptionPane.showMessageDialog(ventana, "Bienvenido", "Login", JOptionPane.INFORMATION_MESSAGE);
+						ventana.irApantallaProducto();
+					}else {
+						JOptionPane.showMessageDialog(ventana, "Usuario o contraseña no validos", "Login", JOptionPane.ERROR_MESSAGE);
+					}
+
+					st.close();
+					conexion.close();
+					
+				} catch (SQLException e1) {
+					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				} 
+			}
+		});
+		panelInferiorUsu.add(BotonInicio);
+		
+		JButton BotonRegistro = new JButton("Registrarse");
+		BotonRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventana.irApantallaRegistro();
+			}
+		});
+		panelInferiorUsu.add(BotonRegistro);
+		
+		
 	}
 }

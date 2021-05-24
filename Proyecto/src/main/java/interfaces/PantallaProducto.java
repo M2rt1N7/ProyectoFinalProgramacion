@@ -10,7 +10,10 @@ import java.awt.Font;
 import java.awt.SystemColor;
 
 public class PantallaProducto extends JPanel{
-	public PantallaProducto() {
+	private Ventana ventana;
+	
+	public PantallaProducto(Ventana v) {
+		this.ventana=v;
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelCentralInv = new JPanel();
