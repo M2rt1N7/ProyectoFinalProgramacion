@@ -36,7 +36,7 @@ public class Ventana extends JFrame {
 		//Imagen de icono
 		try {
 			//Lee la imagen
-			BufferedImage icono=ImageIO.read(new File("icono.png"));
+			BufferedImage icono=ImageIO.read(new File("imagenes/radioactive.png"));
 			//Establece la imagen como imagen de icono
 			this.setIconImage(icono);
 		} catch (IOException e) {
