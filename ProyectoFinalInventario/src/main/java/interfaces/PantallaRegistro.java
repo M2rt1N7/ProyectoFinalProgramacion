@@ -77,18 +77,18 @@ public class PantallaRegistro extends JPanel {
 		panelCentral.add(campoUsuario);
 		campoUsuario.setColumns(10);
 
-		JLabel labelUsuario = new JLabel("NOMBRE USUARIO:");
+		JLabel labelUsuario = new JLabel("USERNAME:");
 		labelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		labelUsuario.setForeground(new Color(153, 0, 0));
 		labelUsuario.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		labelUsuario.setBounds(269, 253, 197, 17);
+		labelUsuario.setBounds(280, 253, 161, 17);
 		panelCentral.add(labelUsuario);
 
-		JLabel labelContraseña = new JLabel("CONTRASE\u00D1A:");
+		JLabel labelContraseña = new JLabel("PASSWORD:");
 		labelContraseña.setHorizontalAlignment(SwingConstants.CENTER);
 		labelContraseña.setForeground(new Color(153, 0, 0));
 		labelContraseña.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		labelContraseña.setBounds(267, 298, 151, 19);
+		labelContraseña.setBounds(294, 298, 133, 19);
 		panelCentral.add(labelContraseña);
 
 		campoContraseña = new JPasswordField();
@@ -106,7 +106,7 @@ public class PantallaRegistro extends JPanel {
 		panelInferior.setBackground(new Color(153, 0, 0));
 		add(panelInferior, BorderLayout.SOUTH);
 
-		JButton botonVolver = new JButton("VOLVER");
+		JButton botonVolver = new JButton("RETURN");
 		botonVolver.setBackground(new Color(153, 0, 0));
 		botonVolver.setForeground(new Color(255, 255, 255));
 		botonVolver.setFont(new Font("Monospaced", Font.PLAIN, 10));
@@ -119,7 +119,7 @@ public class PantallaRegistro extends JPanel {
 
 		// Hay que tener cuidado con el orden de las funciones, no reconoce lo que esta
 		// fuera del ambito por debajo
-		final JButton botonRegistro = new JButton("REGISTRARSE");
+		final JButton botonRegistro = new JButton("CHECK IN");
 		botonRegistro.setBackground(new Color(153, 0, 0));
 		botonRegistro.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonRegistro.setForeground(new Color(255, 255, 255));

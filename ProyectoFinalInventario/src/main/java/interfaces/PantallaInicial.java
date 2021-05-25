@@ -54,12 +54,12 @@ public class PantallaInicial extends JPanel {
 		panelCentral.add(campoUsuario);
 		campoUsuario.setColumns(10);
 
-		JLabel labelUsuario = new JLabel("USUARIO:");
+		JLabel labelUsuario = new JLabel("USER:");
 		labelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		labelUsuario.setForeground(new Color(153, 0, 0));
 		labelUsuario.setLabelFor(campoUsuario);
 		labelUsuario.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		labelUsuario.setBounds(315, 326, 110, 20);
+		labelUsuario.setBounds(338, 326, 88, 20);
 		panelCentral.add(labelUsuario);
 
 		campoContraseña = new JPasswordField();
@@ -70,7 +70,7 @@ public class PantallaInicial extends JPanel {
 		campoContraseña.setBounds(479, 371, 110, 20);
 		panelCentral.add(campoContraseña);
 
-		JLabel labelContraseña = new JLabel("CONTRASE\u00D1A:");
+		JLabel labelContraseña = new JLabel("PASSWORD:");
 		labelContraseña.setHorizontalAlignment(SwingConstants.CENTER);
 		labelContraseña.setForeground(new Color(153, 0, 0));
 		labelContraseña.setFont(new Font("Monospaced", Font.PLAIN, 20));
@@ -98,7 +98,7 @@ public class PantallaInicial extends JPanel {
 		panelInferior.setBackground(new Color(153, 0, 0));
 		add(panelInferior, BorderLayout.SOUTH);
 
-		JButton BotonLogin = new JButton("INICIAR SESI\u00D3N");
+		JButton BotonLogin = new JButton("LOG IN");
 		BotonLogin.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		BotonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,10 +121,10 @@ public class PantallaInicial extends JPanel {
 						contrasenia = resultado.getString("contrasenia");
 						// Modifica la variable de ventana
 						ventana.usuarioLogeado = new Usuario(usuario, contrasenia);
-						JOptionPane.showMessageDialog(ventana, "Bienvenido", "Login", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(ventana, "Welcome", "usuario", JOptionPane.INFORMATION_MESSAGE);
 						ventana.irAPantallaProducto();
 					} else {
-						JOptionPane.showMessageDialog(ventana, "Usuario o contraseña no validos", "Login",
+						JOptionPane.showMessageDialog(ventana, "invalid username or password", "Login",
 								JOptionPane.ERROR_MESSAGE);
 					}
 
@@ -140,7 +140,7 @@ public class PantallaInicial extends JPanel {
 		BotonLogin.setBackground(new Color(153, 0, 0));
 		panelInferior.add(BotonLogin);
 
-		JButton botonRegistro = new JButton("REGISTRARSE");
+		JButton botonRegistro = new JButton("CHECK IN");
 		botonRegistro.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

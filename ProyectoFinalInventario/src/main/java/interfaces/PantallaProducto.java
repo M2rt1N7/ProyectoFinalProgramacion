@@ -25,25 +25,25 @@ public class PantallaProducto extends JPanel {
 		add(panelCentralInv, BorderLayout.CENTER);
 		panelCentralInv.setLayout(null);
 
-		JButton botonConsultar = new JButton("CONSULTAR INVENTARIO");
+		JButton botonConsultar = new JButton("CHECK INVENTORY");
 		botonConsultar.setForeground(new Color(255, 255, 255));
 		botonConsultar.setBackground(new Color(153, 0, 0));
 		botonConsultar.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonConsultar.setBounds(171, 20, 193, 21);
+		botonConsultar.setBounds(163, 20, 193, 21);
 		panelCentralInv.add(botonConsultar);
 
-		JButton botonAñadir = new JButton("A\u00D1ADIR PRODUCTO");
+		JButton botonAñadir = new JButton("ADD PRODUCT");
 		botonAñadir.setBackground(new Color(153, 0, 0));
 		botonAñadir.setForeground(new Color(255, 255, 255));
 		botonAñadir.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonAñadir.setBounds(393, 20, 167, 21);
 		panelCentralInv.add(botonAñadir);
 
-		JButton botonBorrar = new JButton("BORRAR PRODUCTO");
+		JButton botonBorrar = new JButton("DELETE PRODUCT");
 		botonBorrar.setBackground(new Color(153, 0, 0));
 		botonBorrar.setForeground(new Color(255, 255, 255));
 		botonBorrar.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonBorrar.setBounds(594, 20, 167, 21);
+		botonBorrar.setBounds(597, 20, 167, 21);
 		panelCentralInv.add(botonBorrar);
 
 		JList listProducto = new JList();
