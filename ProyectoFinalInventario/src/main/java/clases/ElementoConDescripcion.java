@@ -2,21 +2,25 @@ package clases;
 
 import excepciones.NombreIncorrectoException;
 
-public class CosaConNombre {
+public class ElementoConDescripcion {
 
 	private String nombre;
-
 	
-	public CosaConNombre(String nombre) {
+	
+	
+	public ElementoConDescripcion(String nombre) throws NombreIncorrectoException {
 		super();
-		this.nombre = nombre;
+		this.setNombre(nombre);
+	
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) throws NombreIncorrectoException{
+
+	public void setNombre(String nombre) throws NombreIncorrectoException {
 		if(nombre.isEmpty()) {
 			throw new NombreIncorrectoException("El Nombre no puede estar vacío");
 		}else {
@@ -29,5 +33,7 @@ public class CosaConNombre {
 	public String toString() {
 		return nombre;
 	}
+	
+	
 	
 }

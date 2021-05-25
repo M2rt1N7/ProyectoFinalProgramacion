@@ -9,28 +9,26 @@ import javax.swing.JFrame;
 
 import clases.Usuario;
 
-public class Ventana extends JFrame{
-
+public class Ventana extends JFrame {
 	
 	//Pantallas
 	//Variable de la pantalla inicial que estamos diseñando
 	private PantallaInicial pantallaInicial;
-	//Variable de la pantalla de producto
-	private PantallaProducto pantallaProducto;
-	private PantallaUsuario pantallaUsuario;
+	//Variable de la pantalla de registro
 	private PantallaRegistro pantallaRegistro;
+	private PantallaProducto pantallaProducto;
+	private PantallaBienvenida pantallaBienvenida;
 	//Para que haya persistencia en toda las ventanas
 	protected Usuario usuarioLogeado;
-	
 	/**
 	 * Constructor de la ventana
 	 */
 	public Ventana() {
 		this.setLocationRelativeTo(null);
 		//Establece el tamaño por defecto de la ventana
-		this.setSize(500, 500);
+		this.setSize(900, 600);
 		//Establece El titulo de la ventana
-		this.setTitle("Programa de prueba de Interfaces Gráficas");
+		this.setTitle("Proyecto Final 1ºDAM - Inventario - Federico Martin Muñoz");
 		//Establece si es modificable el tamaño o no, por defecto es true
 		this.setResizable(false);
 		//Establece si la pantalla puede pasar a segundo plano, por defecto es false
@@ -61,12 +59,31 @@ public class Ventana extends JFrame{
 	}
 	
 	/**
-	 * Método que dirige a la pantalla de usuario
+	 * Método que dirige a la pantalla de inicio
 	 */
-	public void irAPantallaUsuario() {
+	public void irAPantallaInicial() {
 		//Si entra lo inicializa para que no de null pointer
-		if(this.pantallaUsuario==null) {
-			this.pantallaUsuario=new PantallaUsuario();
+		if(this.pantallaInicial==null) {
+			this.pantallaInicial=new PantallaInicial(this);
+		}
+		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
+		if(this.pantallaBienvenida!=null) {
+			this.pantallaBienvenida.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaInicial);
+		//Hace visible la pantalla
+		this.pantallaInicial.setVisible(true);
+	}
+	
+	/**
+	 * Método que dirige a la pantalla de registro
+	 */
+	public void irAPantallaRegistro() {
+		//Si entra lo inicializa para que no de null pointer
+		if(this.pantallaRegistro==null) {
+			this.pantallaRegistro=new PantallaRegistro(this);
 		}
 		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
 		if(this.pantallaInicial!=null) {
@@ -74,16 +91,31 @@ public class Ventana extends JFrame{
 		}
 		
 		//Asigna la pantalla a la ventana
-		this.setContentPane(this.pantallaUsuario);
+		this.setContentPane(this.pantallaRegistro);
 		//Hace visible la pantalla
-		this.pantallaUsuario.setVisible(true);
+		this.pantallaRegistro.setVisible(true);
+	}
+	
+	public void volver() {
+		
+		//Oculta la pantalla anterior
+		if(this.pantallaInicial==null) {
+			this.pantallaInicial=new PantallaInicial(this);
+		}
+		if(this.pantallaRegistro!=null) {
+			this.pantallaRegistro.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaInicial);
+		//Hace visible la pantalla
+		this.pantallaInicial.setVisible(true);
 	}
 	
 	/**
-	 * Método que dirige a la pantalla de producto
+	 * Método que dirige a la pantalla de registro
 	 */
-	
-	public void irApantallaProducto() {
+	public void irAPantallaProducto() {
 		//Si entra lo inicializa para que no de null pointer
 		if(this.pantallaProducto==null) {
 			this.pantallaProducto=new PantallaProducto(this);
@@ -98,49 +130,4 @@ public class Ventana extends JFrame{
 		//Hace visible la pantalla
 		this.pantallaProducto.setVisible(true);
 	}
-	
-	/**
-	 * Método que regresa a la pantalla de usuario
-	 */
-	
-	public void volverAPantallaUsuario() {
-		
-		//Oculta la pantalla anterior
-		if(this.pantallaUsuario==null) {
-			this.pantallaUsuario=new PantallaUsuario();
-		}
-		if(this.pantallaRegistro!=null) {
-			this.pantallaRegistro.setVisible(false);
-		}
-		
-		//Asigna la pantalla a la ventana
-		this.setContentPane(this.pantallaUsuario);
-		//Hace visible la pantalla
-		this.pantallaUsuario.setVisible(true);
-	}
-	
-	/**
-	 * Método que dirige a la pantalla de registro
-	 */
-	
-	public void irApantallaRegistro() {
-		//Si entra lo inicializa para que no de null pointer
-		if(this.pantallaRegistro==null) {
-			this.pantallaRegistro=new PantallaRegistro(this);
-		}
-		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
-		if(this.pantallaUsuario!=null) {
-			this.pantallaUsuario.setVisible(false);
-		}
-		
-		//Asigna la pantalla a la ventana
-		this.setContentPane(this.pantallaRegistro);
-		//Hace visible la pantalla
-		this.pantallaRegistro.setVisible(true);
-	}
-	
-	
-		
-	}
-
-
+}

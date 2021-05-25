@@ -1,23 +1,24 @@
 package interfaces;
 
-import javax.swing.JPanel;
-import java.awt.FlowLayout;
 import java.awt.BorderLayout;
-import javax.swing.border.MatteBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JTextField;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 import java.awt.SystemColor;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class PantallaInicial extends JPanel{
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
+
+public class PantallaBienvenida extends JPanel{
+
 	private Ventana ventana;
 	
-	public PantallaInicial(Ventana v) {
+	public PantallaBienvenida(Ventana v) {
 		
 		this.ventana = v;
 		setBackground(Color.WHITE);
@@ -25,40 +26,46 @@ public class PantallaInicial extends JPanel{
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelSuperior = new JPanel();
-		panelSuperior.setBackground(SystemColor.activeCaption);
+		panelSuperior.setBackground(SystemColor.inactiveCaption);
 		panelSuperior.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		FlowLayout fl_panelSuperior = (FlowLayout) panelSuperior.getLayout();
 		fl_panelSuperior.setAlignOnBaseline(true);
 		add(panelSuperior, BorderLayout.NORTH);
 		
 		JLabel labelSistema = new JLabel("SISTEMA DE INVENTARIO");
-		labelSistema.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelSistema.setForeground(new Color(0, 51, 102));
+		labelSistema.setBackground(new Color(0, 51, 102));
+		labelSistema.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		labelSistema.setHorizontalAlignment(SwingConstants.CENTER);
 		panelSuperior.add(labelSistema);
 		
 		JPanel panelInferior = new JPanel();
-		panelInferior.setBackground(SystemColor.control);
+		panelInferior.setBackground(SystemColor.activeCaption);
 		panelInferior.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		add(panelInferior, BorderLayout.SOUTH);
 		
 		JButton botonEntrar = new JButton("ENTRAR");
+		botonEntrar.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		botonEntrar.setForeground(new Color(0, 51, 102));
+		botonEntrar.setBackground(new Color(102, 153, 51));
 		botonEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ventana.irAPantallaUsuario();
+				ventana.irAPantallaInicial();
 			}
 		});
 		panelInferior.add(botonEntrar);
 		
 		JPanel panelCentral = new JPanel();
-		panelCentral.setBackground(Color.WHITE);
+		panelCentral.setBackground(SystemColor.inactiveCaptionBorder);
 		add(panelCentral, BorderLayout.CENTER);
-		panelCentral.setLayout(null);
+		panelCentral.setLayout(new BorderLayout(0, 0));
 		
-		JLabel labelSistema2 = new JLabel("Inventario Seven56 SL.");
-		labelSistema2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		JLabel labelSistema2 = new JLabel("InventorySix48 SL.");
+		labelSistema2.setForeground(new Color(0, 51, 102));
+		labelSistema2.setBackground(Color.WHITE);
+		labelSistema2.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 36));
 		labelSistema2.setHorizontalAlignment(SwingConstants.CENTER);
-		labelSistema2.setBounds(82, 95, 276, 32);
 		panelCentral.add(labelSistema2);
 	}
-
+	
 }
