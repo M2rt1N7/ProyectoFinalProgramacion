@@ -41,45 +41,61 @@ public class PantallaInicial extends JPanel {
 
 		JPanel panelCentral = new JPanel();
 		panelCentral.setForeground(new Color(51, 51, 0));
-		panelCentral.setBackground(new Color(0, 51, 0));
+		panelCentral.setBackground(new Color(255, 255, 255));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
 		campoUsuario = new JTextField();
-		campoUsuario.setForeground(new Color(0, 51, 0));
-		campoUsuario.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		campoUsuario.setBackground(new Color(51, 204, 51));
+		campoUsuario.setForeground(new Color(255, 255, 255));
+		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoUsuario.setBackground(new Color(153, 0, 0));
 		campoUsuario.setToolTipText("Introduce tu nombre de usuario");
-		campoUsuario.setBounds(419, 58, 110, 20);
+		campoUsuario.setBounds(479, 330, 110, 20);
 		panelCentral.add(campoUsuario);
 		campoUsuario.setColumns(10);
 
 		JLabel labelUsuario = new JLabel("USUARIO:");
 		labelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		labelUsuario.setForeground(new Color(0, 255, 0));
+		labelUsuario.setForeground(new Color(153, 0, 0));
 		labelUsuario.setLabelFor(campoUsuario);
 		labelUsuario.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		labelUsuario.setBounds(247, 53, 110, 20);
+		labelUsuario.setBounds(315, 326, 110, 20);
 		panelCentral.add(labelUsuario);
 
 		campoContraseña = new JPasswordField();
-		campoContraseña.setBackground(new Color(51, 204, 51));
-		campoContraseña.setForeground(new Color(0, 51, 0));
-		campoContraseña.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		campoContraseña.setBackground(new Color(153, 0, 0));
+		campoContraseña.setForeground(new Color(255, 255, 255));
+		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 10));
 		campoContraseña.setToolTipText("Introduce tu contrase\u00F1a");
-		campoContraseña.setBounds(419, 100, 110, 20);
+		campoContraseña.setBounds(479, 371, 110, 20);
 		panelCentral.add(campoContraseña);
 
 		JLabel labelContraseña = new JLabel("CONTRASE\u00D1A:");
 		labelContraseña.setHorizontalAlignment(SwingConstants.CENTER);
-		labelContraseña.setForeground(new Color(0, 255, 0));
+		labelContraseña.setForeground(new Color(153, 0, 0));
 		labelContraseña.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		labelContraseña.setLabelFor(campoContraseña);
-		labelContraseña.setBounds(247, 96, 143, 20);
+		labelContraseña.setBounds(315, 367, 143, 20);
 		panelCentral.add(labelContraseña);
+		
+		JLabel lblNewLabel = new JLabel("| | | AMMU-NATION | | |");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setForeground(new Color(153, 0, 0));
+		lblNewLabel.setFont(new Font("Magneto", Font.BOLD, 40));
+		lblNewLabel.setBounds(138, 181, 647, 40);
+		panelCentral.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Inventory");
+		lblNewLabel_1.setForeground(new Color(153, 0, 0));
+		lblNewLabel_1.setBackground(new Color(0, 0, 0));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Magneto", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(580, 218, 136, 21);
+		panelCentral.add(lblNewLabel_1);
 
 		JPanel panelInferior = new JPanel();
-		panelInferior.setBackground(new Color(0, 51, 0));
+		panelInferior.setForeground(new Color(0, 0, 0));
+		panelInferior.setBackground(new Color(153, 0, 0));
 		add(panelInferior, BorderLayout.SOUTH);
 
 		JButton BotonLogin = new JButton("INICIAR SESI\u00D3N");
@@ -97,29 +113,31 @@ public class PantallaInicial extends JPanel {
 					// Cursor que guarda el resultado de la consulta
 					ResultSet resultado = st.executeQuery("select * from usuario where nombre='" + usuario
 							+ "' and contrasenia='" + contrasenia + "'");
-					// Recorre el ResultSet como si fuera un iterator, si solo da un resultado, se puede usar un if
+					// Recorre el ResultSet como si fuera un iterator, si solo da un resultado, se
+					// puede usar un if
 					if (resultado.next()) {
 						// Este metodo devuelve el tipo de dato indicandole la columna
 						usuario = resultado.getString("nombre");
 						contrasenia = resultado.getString("contrasenia");
-						//Modifica la variable de ventana
+						// Modifica la variable de ventana
 						ventana.usuarioLogeado = new Usuario(usuario, contrasenia);
 						JOptionPane.showMessageDialog(ventana, "Bienvenido", "Login", JOptionPane.INFORMATION_MESSAGE);
 						ventana.irAPantallaProducto();
-					}else {
-						JOptionPane.showMessageDialog(ventana, "Usuario o contraseña no validos", "Login", JOptionPane.ERROR_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(ventana, "Usuario o contraseña no validos", "Login",
+								JOptionPane.ERROR_MESSAGE);
 					}
 
 					st.close();
 					conexion.close();
-					
-				} catch (SQLException |ContraseñaIncorrectaException | NombreIncorrectoException e1) {
+
+				} catch (SQLException | ContraseñaIncorrectaException | NombreIncorrectoException e1) {
 					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-				} 
+				}
 			}
 		});
-		BotonLogin.setForeground(new Color(0, 51, 0));
-		BotonLogin.setBackground(new Color(51, 204, 51));
+		BotonLogin.setForeground(new Color(255, 255, 255));
+		BotonLogin.setBackground(new Color(153, 0, 0));
 		panelInferior.add(BotonLogin);
 
 		JButton botonRegistro = new JButton("REGISTRARSE");
@@ -129,17 +147,17 @@ public class PantallaInicial extends JPanel {
 				ventana.irAPantallaRegistro();
 			}
 		});
-		botonRegistro.setForeground(new Color(0, 51, 0));
-		botonRegistro.setBackground(new Color(51, 204, 51));
+		botonRegistro.setForeground(new Color(255, 255, 255));
+		botonRegistro.setBackground(new Color(153, 0, 0));
 		panelInferior.add(botonRegistro);
 
 		JPanel panelSuperior = new JPanel();
-		panelSuperior.setBackground(new Color(0, 51, 0));
+		panelSuperior.setBackground(new Color(153, 0, 0));
 		panelSuperior.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(240, 240, 240)));
 		add(panelSuperior, BorderLayout.NORTH);
 
-		JLabel tituloPrincipal = new JLabel("INICIO SESI\u00D3N");
-		tituloPrincipal.setForeground(new Color(0, 255, 0));
+		JLabel tituloPrincipal = new JLabel("10DaysToDie S.A.");
+		tituloPrincipal.setForeground(new Color(255, 255, 255));
 		tituloPrincipal.setHorizontalAlignment(SwingConstants.CENTER);
 		tituloPrincipal.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panelSuperior.add(tituloPrincipal);

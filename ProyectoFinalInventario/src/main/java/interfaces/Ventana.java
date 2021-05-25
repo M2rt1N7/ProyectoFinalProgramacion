@@ -17,7 +17,6 @@ public class Ventana extends JFrame {
 	//Variable de la pantalla de registro
 	private PantallaRegistro pantallaRegistro;
 	private PantallaProducto pantallaProducto;
-	private PantallaBienvenida pantallaBienvenida;
 	//Para que haya persistencia en toda las ventanas
 	protected Usuario usuarioLogeado;
 	/**
@@ -36,7 +35,7 @@ public class Ventana extends JFrame {
 		//Imagen de icono
 		try {
 			//Lee la imagen
-			BufferedImage icono=ImageIO.read(new File("imagenes/radioactive.png"));
+			BufferedImage icono=ImageIO.read(new File("imagenes/explosion.png"));
 			//Establece la imagen como imagen de icono
 			this.setIconImage(icono);
 		} catch (IOException e) {
@@ -58,24 +57,6 @@ public class Ventana extends JFrame {
 		this.setVisible(true);
 	}
 	
-	/**
-	 * Método que dirige a la pantalla de inicio
-	 */
-	public void irAPantallaInicial() {
-		//Si entra lo inicializa para que no de null pointer
-		if(this.pantallaInicial==null) {
-			this.pantallaInicial=new PantallaInicial(this);
-		}
-		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
-		if(this.pantallaBienvenida!=null) {
-			this.pantallaBienvenida.setVisible(false);
-		}
-		
-		//Asigna la pantalla a la ventana
-		this.setContentPane(this.pantallaInicial);
-		//Hace visible la pantalla
-		this.pantallaInicial.setVisible(true);
-	}
 	
 	/**
 	 * Método que dirige a la pantalla de registro

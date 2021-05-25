@@ -52,62 +52,63 @@ public class PantallaRegistro extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panelSuperior = new JPanel();
-		panelSuperior.setBackground(new Color(0, 51, 0));
+		panelSuperior.setBackground(new Color(153, 0, 0));
 		panelSuperior.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(192, 192, 192)));
 		add(panelSuperior, BorderLayout.NORTH);
 
-		JLabel titulo = new JLabel("REGISTRAR USUARIO");
-		titulo.setForeground(new Color(0, 255, 0));
+		JLabel titulo = new JLabel("10DaysToDie S.A.");
+		titulo.setForeground(new Color(255, 255, 255));
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		titulo.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panelSuperior.add(titulo);
 
 		final JPanel panelCentral = new JPanel();
+		panelCentral.setForeground(new Color(153, 0, 0));
 		panelCentral.setToolTipText("Introduce el nombre de usuario");
-		panelCentral.setBackground(new Color(0, 51, 0));
+		panelCentral.setBackground(new Color(255, 255, 255));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
 		campoUsuario = new JTextField();
-		campoUsuario.setBackground(new Color(51, 204, 51));
-		campoUsuario.setForeground(new Color(0, 51, 0));
-		campoUsuario.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		campoUsuario.setBounds(458, 78, 114, 19);
+		campoUsuario.setBackground(new Color(153, 0, 0));
+		campoUsuario.setForeground(new Color(255, 255, 255));
+		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoUsuario.setBounds(476, 255, 114, 19);
 		panelCentral.add(campoUsuario);
 		campoUsuario.setColumns(10);
 
 		JLabel labelUsuario = new JLabel("NOMBRE USUARIO:");
 		labelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		labelUsuario.setForeground(new Color(0, 255, 0));
+		labelUsuario.setForeground(new Color(153, 0, 0));
 		labelUsuario.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		labelUsuario.setBounds(221, 79, 197, 17);
+		labelUsuario.setBounds(269, 253, 197, 17);
 		panelCentral.add(labelUsuario);
 
 		JLabel labelContraseña = new JLabel("CONTRASE\u00D1A:");
 		labelContraseña.setHorizontalAlignment(SwingConstants.CENTER);
-		labelContraseña.setForeground(new Color(0, 255, 0));
+		labelContraseña.setForeground(new Color(153, 0, 0));
 		labelContraseña.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		labelContraseña.setBounds(221, 121, 151, 19);
+		labelContraseña.setBounds(267, 298, 151, 19);
 		panelCentral.add(labelContraseña);
 
 		campoContraseña = new JPasswordField();
-		campoContraseña.setBackground(new Color(51, 204, 51));
-		campoContraseña.setForeground(new Color(0, 51, 0));
+		campoContraseña.setBackground(new Color(153, 0, 0));
+		campoContraseña.setForeground(new Color(255, 255, 255));
 		campoContraseña.setToolTipText("Introduce la contrase\u00F1a");
-		campoContraseña.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		campoContraseña.setBounds(458, 121, 114, 19);
+		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoContraseña.setBounds(476, 301, 114, 19);
 		panelCentral.add(campoContraseña);
 
 		// Grupo de botones para que solo funcione uno a la vez
 		ButtonGroup grupoGenero = new ButtonGroup();
 
 		JPanel panelInferior = new JPanel();
-		panelInferior.setBackground(new Color(0, 51, 0));
+		panelInferior.setBackground(new Color(153, 0, 0));
 		add(panelInferior, BorderLayout.SOUTH);
 
 		JButton botonVolver = new JButton("VOLVER");
-		botonVolver.setBackground(new Color(51, 204, 51));
-		botonVolver.setForeground(new Color(0, 51, 0));
+		botonVolver.setBackground(new Color(153, 0, 0));
+		botonVolver.setForeground(new Color(255, 255, 255));
 		botonVolver.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -119,9 +120,9 @@ public class PantallaRegistro extends JPanel {
 		// Hay que tener cuidado con el orden de las funciones, no reconoce lo que esta
 		// fuera del ambito por debajo
 		final JButton botonRegistro = new JButton("REGISTRARSE");
-		botonRegistro.setBackground(new Color(0, 51, 0));
+		botonRegistro.setBackground(new Color(153, 0, 0));
 		botonRegistro.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonRegistro.setForeground(new Color(51, 204, 51));
+		botonRegistro.setForeground(new Color(255, 255, 255));
 		botonRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nombreUsuario = campoUsuario.getText();
@@ -164,8 +165,8 @@ public class PantallaRegistro extends JPanel {
 		botonRegistro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				//botonRegistro.setBackground(new Color(200, 0, 0));
-				//botonRegistro.setForeground(new Color(255, 255, 255));
+				// botonRegistro.setBackground(new Color(200, 0, 0));
+				// botonRegistro.setForeground(new Color(255, 255, 255));
 			}
 
 			@Override
