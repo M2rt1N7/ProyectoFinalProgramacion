@@ -125,12 +125,12 @@ public class PantallaRegistro extends JPanel {
 		botonRegistro.setForeground(new Color(255, 255, 255));
 		botonRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nombreUsuario = campoUsuario.getText();
+				String nombre = campoUsuario.getText();
 				// Constructor de String que convierte un array en String
 				String contrasenia = new String(campoContraseña.getPassword());
 
 				try {
-					Usuario actual = new Usuario(nombreUsuario, contrasenia);
+					Usuario actual = new Usuario(nombre, contrasenia);
 					// Conexion a MySQL, hay que pegar la dependencia en el pom.xml
 					// El primer argumento es la cadena de conexion en String+servidor+puerto,
 					// El segundo argumento es la conexion, en este caso root
@@ -142,7 +142,7 @@ public class PantallaRegistro extends JPanel {
 					// executeupdate realiza insert update etc
 					// executequery solo realiza consultas
 					// Se introduce el insert tal como se hace en MySQL
-					st.executeUpdate("insert into usuario values('" + nombreUsuario + "', '" + contrasenia + "'");
+					st.executeUpdate("insert into usuario values('" + nombre + "', '" + contrasenia + "')");
 
 					// Hay que cerrar el Statement antes de cerrar la conexion
 					st.close();

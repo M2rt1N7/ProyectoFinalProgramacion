@@ -42,7 +42,7 @@ public class Producto extends ElementoConDescripcion {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Objeto [codigo=" + codigo + ", tipo=" + tipo + ", stock=" + stock + "]";
+		return super.toString() + "  -->  CODE = " + codigo + " | TYPE = " + tipo + " | STOCK = " + stock + "";
 	}
 
 	

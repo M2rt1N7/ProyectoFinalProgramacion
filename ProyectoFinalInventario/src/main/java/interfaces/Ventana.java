@@ -17,6 +17,7 @@ public class Ventana extends JFrame {
 	//Variable de la pantalla de registro
 	private PantallaRegistro pantallaRegistro;
 	private PantallaProducto pantallaProducto;
+	private PantallaAñadir pantallaAñadir;
 	//Para que haya persistencia en toda las ventanas
 	protected Usuario usuarioLogeado;
 	/**
@@ -93,6 +94,22 @@ public class Ventana extends JFrame {
 		this.pantallaInicial.setVisible(true);
 	}
 	
+	public void volverDesdeProducto() {
+		
+		//Oculta la pantalla anterior
+		if(this.pantallaInicial==null) {
+			this.pantallaInicial=new PantallaInicial(this);
+		}
+		if(this.pantallaProducto!=null) {
+			this.pantallaProducto.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaInicial);
+		//Hace visible la pantalla
+		this.pantallaInicial.setVisible(true);
+	}
+	
 	/**
 	 * Método que dirige a la pantalla de registro
 	 */
@@ -111,4 +128,37 @@ public class Ventana extends JFrame {
 		//Hace visible la pantalla
 		this.pantallaProducto.setVisible(true);
 	}
+	
+	public void irAPantallaAñadir() {
+		//Si entra lo inicializa para que no de null pointer
+		if(this.pantallaAñadir==null) {
+			this.pantallaAñadir=new PantallaAñadir(this);
+		}
+		//Oculta la pantalla anterior, hace la comprobacion para comprobar que no de null pinter
+		if(this.pantallaProducto!=null) {
+			this.pantallaProducto.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaAñadir);
+		//Hace visible la pantalla
+		this.pantallaAñadir.setVisible(true);
+	}
+	
+	public void volverAPantallaProducto() {
+		
+		//Oculta la pantalla anterior
+		if(this.pantallaProducto==null) {
+			this.pantallaProducto=new PantallaProducto(this);
+		}
+		if(this.pantallaAñadir!=null) {
+			this.pantallaAñadir.setVisible(false);
+		}
+		
+		//Asigna la pantalla a la ventana
+		this.setContentPane(this.pantallaProducto);
+		//Hace visible la pantalla
+		this.pantallaProducto.setVisible(true);
+	}
+	
 }

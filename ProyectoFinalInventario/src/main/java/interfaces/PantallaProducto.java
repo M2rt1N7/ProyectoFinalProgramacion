@@ -77,19 +77,19 @@ public class PantallaProducto extends JPanel {
 		botonConsultar.setForeground(new Color(255, 255, 255));
 		botonConsultar.setBackground(new Color(153, 0, 0));
 		botonConsultar.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonConsultar.setBounds(163, 20, 193, 21);
+		botonConsultar.setBounds(51, 20, 193, 21);
 		panelCentralInv.add(botonConsultar);
 
-		JButton botonAñadir = new JButton("ADD PRODUCT");
+		JButton botonAñadir = new JButton("ADD STOCK");
 		botonAñadir.setBackground(new Color(153, 0, 0));
 		botonAñadir.setForeground(new Color(255, 255, 255));
 		botonAñadir.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonAñadir.setBounds(393, 20, 167, 21);
+		botonAñadir.setBounds(450, 20, 167, 21);
 		panelCentralInv.add(botonAñadir);
 
 		JList<Producto> listProducto = new JList<Producto>(listModel);
 		
-		JButton botonBorrar = new JButton("DELETE PRODUCT");
+		JButton botonBorrar = new JButton("DELETE STOCK");
 		botonBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -101,19 +101,46 @@ public class PantallaProducto extends JPanel {
 					System.out.println(listProducto.getSelectedValue().getStock());
 					listProducto.setModel(listModel);
 				}
+				
 			}
 		});
 		botonBorrar.setBackground(new Color(153, 0, 0));
 		botonBorrar.setForeground(new Color(255, 255, 255));
 		botonBorrar.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonBorrar.setBounds(597, 20, 167, 21);
+		botonBorrar.setBounds(646, 20, 167, 21);
 		panelCentralInv.add(botonBorrar);
 		
 		listProducto.setForeground(new Color(255, 255, 255));
-		listProducto.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		listProducto.setFont(new Font("Monospaced", Font.BOLD, 14));
 		listProducto.setBackground(new Color(153, 0, 0));
-		listProducto.setBounds(114, 124, 692, 336);
+		listProducto.setBounds(88, 89, 692, 336);
 		panelCentralInv.add(listProducto);
+		
+		JButton botonVolverPro = new JButton("RETURN");
+		botonVolverPro.setBackground(new Color(153, 0, 0));
+		botonVolverPro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.volverDesdeProducto();
+			}
+		});
+		botonVolverPro.setForeground(Color.WHITE);
+		botonVolverPro.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		botonVolverPro.setBounds(679, 463, 85, 21);
+		panelCentralInv.add(botonVolverPro);
+		
+		JButton btnNewButton = new JButton("ADD PRODUCT");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.irAPantallaAñadir();
+			}
+		});
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		btnNewButton.setBackground(new Color(153, 0, 0));
+		btnNewButton.setBounds(275, 20, 152, 21);
+		panelCentralInv.add(btnNewButton);
 
 		JPanel panelSuperiorInv = new JPanel();
 		panelSuperiorInv.setForeground(new Color(255, 255, 255));

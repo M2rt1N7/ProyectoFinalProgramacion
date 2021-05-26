@@ -3,18 +3,33 @@ package interfaces;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import clases.Producto;
+import clases.Usuario;
+import excepciones.ContraseñaIncorrectaException;
+import excepciones.NombreIncorrectoException;
+
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class PantallaAñadir extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	public PantallaAñadir() {
+	private Ventana ventana;
+	private JTextField textNombre;
+	private JTextField textCodigo;
+	private JTextField textTipo;
+	private JTextField textStock;
+	public PantallaAñadir(Ventana v) {
+		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelSuperiorAdd = new JPanel();
@@ -32,7 +47,25 @@ public class PantallaAñadir extends JPanel {
 		panelInferiorAdd.setBackground(new Color(153, 0, 0));
 		add(panelInferiorAdd, BorderLayout.SOUTH);
 		
+		JButton btnNewButton = new JButton("VOLVER");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.volverAPantallaProducto();
+			}
+		});
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(new Color(153, 0, 0));
+		btnNewButton.setFont(new Font("Monospaced", Font.PLAIN, 10));
+		panelInferiorAdd.add(btnNewButton);
+		
 		JButton botonAñadir = new JButton("ADD PRODUCT");
+		botonAñadir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+			}
+		});
 		botonAñadir.setBackground(new Color(153, 0, 0));
 		botonAñadir.setForeground(new Color(255, 255, 255));
 		botonAñadir.setFont(new Font("Monospaced", Font.PLAIN, 10));
@@ -43,68 +76,68 @@ public class PantallaAñadir extends JPanel {
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Name:");
-		lblNewLabel_1.setForeground(new Color(153, 0, 0));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		lblNewLabel_1.setBounds(35, 32, 78, 16);
-		panel.add(lblNewLabel_1);
+		JLabel campoNombre = new JLabel("NAME:");
+		campoNombre.setForeground(new Color(153, 0, 0));
+		campoNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		campoNombre.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		campoNombre.setBounds(229, 208, 78, 16);
+		panel.add(campoNombre);
 		
-		textField = new JTextField();
-		textField.setForeground(new Color(255, 255, 255));
-		textField.setBackground(new Color(153, 0, 0));
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textField.setBounds(123, 32, 96, 19);
-		panel.add(textField);
-		textField.setColumns(10);
+		textNombre = new JTextField();
+		textNombre.setForeground(new Color(255, 255, 255));
+		textNombre.setBackground(new Color(153, 0, 0));
+		textNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		textNombre.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		textNombre.setBounds(317, 206, 96, 19);
+		panel.add(textNombre);
+		textNombre.setColumns(10);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Code:");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(new Color(153, 0, 0));
-		lblNewLabel_1_1.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		lblNewLabel_1_1.setBounds(35, 80, 78, 16);
-		panel.add(lblNewLabel_1_1);
+		JLabel campoCodigo = new JLabel("CODE:");
+		campoCodigo.setHorizontalAlignment(SwingConstants.CENTER);
+		campoCodigo.setForeground(new Color(153, 0, 0));
+		campoCodigo.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		campoCodigo.setBounds(229, 299, 78, 16);
+		panel.add(campoCodigo);
 		
-		textField_1 = new JTextField();
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setForeground(Color.WHITE);
-		textField_1.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textField_1.setColumns(10);
-		textField_1.setBackground(new Color(153, 0, 0));
-		textField_1.setBounds(123, 80, 96, 19);
-		panel.add(textField_1);
+		textCodigo = new JTextField();
+		textCodigo.setHorizontalAlignment(SwingConstants.CENTER);
+		textCodigo.setForeground(Color.WHITE);
+		textCodigo.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		textCodigo.setColumns(10);
+		textCodigo.setBackground(new Color(153, 0, 0));
+		textCodigo.setBounds(317, 297, 96, 19);
+		panel.add(textCodigo);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Type:");
-		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setForeground(new Color(153, 0, 0));
-		lblNewLabel_1_2.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		lblNewLabel_1_2.setBounds(229, 35, 78, 16);
-		panel.add(lblNewLabel_1_2);
+		JLabel campoTipo = new JLabel("TYPE:");
+		campoTipo.setHorizontalAlignment(SwingConstants.CENTER);
+		campoTipo.setForeground(new Color(153, 0, 0));
+		campoTipo.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		campoTipo.setBounds(431, 208, 78, 16);
+		panel.add(campoTipo);
 		
-		textField_2 = new JTextField();
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setForeground(Color.WHITE);
-		textField_2.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textField_2.setColumns(10);
-		textField_2.setBackground(new Color(153, 0, 0));
-		textField_2.setBounds(318, 32, 96, 19);
-		panel.add(textField_2);
+		textTipo = new JTextField();
+		textTipo.setHorizontalAlignment(SwingConstants.CENTER);
+		textTipo.setForeground(Color.WHITE);
+		textTipo.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		textTipo.setColumns(10);
+		textTipo.setBackground(new Color(153, 0, 0));
+		textTipo.setBounds(534, 206, 96, 19);
+		panel.add(textTipo);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Type:");
-		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2_1.setForeground(new Color(153, 0, 0));
-		lblNewLabel_1_2_1.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		lblNewLabel_1_2_1.setBounds(229, 83, 78, 16);
-		panel.add(lblNewLabel_1_2_1);
+		JLabel campoStock = new JLabel("STOCK:");
+		campoStock.setHorizontalAlignment(SwingConstants.CENTER);
+		campoStock.setForeground(new Color(153, 0, 0));
+		campoStock.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		campoStock.setBounds(431, 299, 78, 16);
+		panel.add(campoStock);
 		
-		textField_3 = new JTextField();
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setForeground(Color.WHITE);
-		textField_3.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textField_3.setColumns(10);
-		textField_3.setBackground(new Color(153, 0, 0));
-		textField_3.setBounds(318, 80, 96, 19);
-		panel.add(textField_3);
+		textStock = new JTextField();
+		textStock.setHorizontalAlignment(SwingConstants.CENTER);
+		textStock.setForeground(Color.WHITE);
+		textStock.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		textStock.setColumns(10);
+		textStock.setBackground(new Color(153, 0, 0));
+		textStock.setBounds(534, 297, 96, 19);
+		panel.add(textStock);
 	}
 }

@@ -78,7 +78,7 @@ public class PantallaInicial extends JPanel {
 		labelContraseña.setBounds(315, 367, 143, 20);
 		panelCentral.add(labelContraseña);
 		
-		JLabel lblNewLabel = new JLabel("| | | AMMU-NATiON | | |");
+		JLabel lblNewLabel = new JLabel("| | |  AMMU-NATiON  | | |");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(new Color(153, 0, 0));
 		lblNewLabel.setFont(new Font("Magneto", Font.BOLD, 40));
@@ -92,10 +92,6 @@ public class PantallaInicial extends JPanel {
 		lblNewLabel_1.setFont(new Font("Magneto", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(580, 218, 136, 21);
 		panelCentral.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(107, 113, 45, 13);
-		panelCentral.add(lblNewLabel_2);
 
 		JPanel panelInferior = new JPanel();
 		panelInferior.setForeground(new Color(0, 0, 0));
@@ -125,7 +121,7 @@ public class PantallaInicial extends JPanel {
 						contrasenia = resultado.getString("contrasenia");
 						// Modifica la variable de ventana
 						ventana.usuarioLogeado = new Usuario(usuario, contrasenia);
-						JOptionPane.showMessageDialog(ventana, "Welcome mate!", "usuario", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(ventana, " Welcome Sir! ", "usuario", JOptionPane.INFORMATION_MESSAGE);
 						ventana.irAPantallaProducto();
 					} else {
 						JOptionPane.showMessageDialog(ventana, "ERROR: invalid username or password", "Login",
