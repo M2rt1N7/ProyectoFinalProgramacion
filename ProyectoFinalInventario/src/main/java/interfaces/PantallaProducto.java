@@ -24,6 +24,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JScrollPane;
 
 public class PantallaProducto extends JPanel {
 
@@ -40,7 +41,7 @@ public class PantallaProducto extends JPanel {
 		panelCentralInv.setLayout(null);
 		
 		DefaultListModel<Producto> listModel=new DefaultListModel<Producto>();
-	
+		JList<Producto> listProducto = new JList<Producto>(listModel);
 		
 		JButton botonConsultar = new JButton("CHECK INVENTORY");
 		botonConsultar.addMouseListener(new MouseAdapter() {
@@ -78,8 +79,6 @@ public class PantallaProducto extends JPanel {
 		botonConsultar.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonConsultar.setBounds(51, 20, 193, 21);
 		panelCentralInv.add(botonConsultar);
-
-		JList<Producto> listProducto = new JList<Producto>(listModel);
 		
 		JButton botonAñadir = new JButton("ADD STOCK");
 		botonAñadir.addMouseListener(new MouseAdapter() {
@@ -142,12 +141,6 @@ public class PantallaProducto extends JPanel {
 		botonBorrar.setBounds(646, 20, 167, 21);
 		panelCentralInv.add(botonBorrar);
 		
-		listProducto.setForeground(new Color(255, 255, 255));
-		listProducto.setFont(new Font("Monospaced", Font.BOLD, 14));
-		listProducto.setBackground(new Color(153, 0, 0));
-		listProducto.setBounds(88, 89, 692, 336);
-		panelCentralInv.add(listProducto);
-		
 		JButton botonVolverPro = new JButton("RETURN");
 		botonVolverPro.setBackground(new Color(153, 0, 0));
 		botonVolverPro.addMouseListener(new MouseAdapter() {
@@ -173,6 +166,16 @@ public class PantallaProducto extends JPanel {
 		btnNewButton.setBackground(new Color(153, 0, 0));
 		btnNewButton.setBounds(275, 20, 152, 21);
 		panelCentralInv.add(btnNewButton);
+		
+		JScrollPane scrollProducto = new JScrollPane();
+		scrollProducto.setBounds(108, 104, 662, 326);
+		panelCentralInv.add(scrollProducto);
+		
+				scrollProducto.setViewportView(listProducto);
+				
+				listProducto.setForeground(new Color(255, 255, 255));
+				listProducto.setFont(new Font("Monospaced", Font.BOLD, 14));
+				listProducto.setBackground(new Color(153, 0, 0));
 
 		JPanel panelSuperiorInv = new JPanel();
 		panelSuperiorInv.setForeground(new Color(255, 255, 255));
