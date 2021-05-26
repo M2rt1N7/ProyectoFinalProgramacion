@@ -24,10 +24,10 @@ import java.sql.Statement;
 
 public class PantallaAñadir extends JPanel {
 	private Ventana ventana;
-	private JTextField textNombre;
-	private JTextField textCodigo;
-	private JTextField textTipo;
-	private JTextField textStock;
+	private JTextField campoNombre;
+	private JTextField campoCodigo;
+	private JTextField campoTipo;
+	private JTextField campoStock;
 	public PantallaAñadir(Ventana v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -63,8 +63,48 @@ public class PantallaAñadir extends JPanel {
 		botonAñadir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				String nombre = campoNombre.getText();
+				String codigo = campoCodigo.getText();
+				String tipo = campoTipo.getText();
+				Short stock = Short.parseShort(campoStock.getText());
+				// Constructor de String que convierte un array en String
+				
 
+				
+					
+					Connection conexion;
+					try {
+						Producto actual = new Producto(nombre, codigo, tipo, stock);
+					// Conexion a MySQL, hay que pegar la dependencia en el pom.xml
+					// El primer argumento es la cadena de conexion en String+servidor+puerto,
+					// El segundo argumento es la conexion, en este caso root
+					// El tercer argumento es la contraseña
+						
+						conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pruebas1dam", "root",
+								"1018Flutox");
+						// Statement realiza las consultas, insert, etc...
+					Statement st = conexion.createStatement();
+					// executeupdate realiza insert update etc
+					// executequery solo realiza consultas
+					// Se introduce el insert tal como se hace en MySQL
+					st.executeUpdate("insert into producto values('" + nombre + "', '" + codigo + "','" + tipo + "', '" + stock + "')");
+
+					// Hay que cerrar el Statement antes de cerrar la conexion
+					st.close();
+					// Cierra la conexion
+					conexion.close();
+					JOptionPane.showMessageDialog(ventana, "Producto registrado", "Usuario",
+							JOptionPane.INFORMATION_MESSAGE);
+					ventana.volver();
+						
+				} catch (SQLException | NombreIncorrectoException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+			 
 			}
+		  
 		});
 		botonAñadir.setBackground(new Color(153, 0, 0));
 		botonAñadir.setForeground(new Color(255, 255, 255));
@@ -76,68 +116,68 @@ public class PantallaAñadir extends JPanel {
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel campoNombre = new JLabel("NAME:");
-		campoNombre.setForeground(new Color(153, 0, 0));
-		campoNombre.setHorizontalAlignment(SwingConstants.CENTER);
-		campoNombre.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		campoNombre.setBounds(229, 208, 78, 16);
-		panel.add(campoNombre);
-		
-		textNombre = new JTextField();
-		textNombre.setForeground(new Color(255, 255, 255));
-		textNombre.setBackground(new Color(153, 0, 0));
+		JLabel textNombre = new JLabel("NAME:");
+		textNombre.setForeground(new Color(153, 0, 0));
 		textNombre.setHorizontalAlignment(SwingConstants.CENTER);
-		textNombre.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textNombre.setBounds(317, 206, 96, 19);
+		textNombre.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		textNombre.setBounds(229, 208, 78, 16);
 		panel.add(textNombre);
-		textNombre.setColumns(10);
 		
-		JLabel campoCodigo = new JLabel("CODE:");
-		campoCodigo.setHorizontalAlignment(SwingConstants.CENTER);
-		campoCodigo.setForeground(new Color(153, 0, 0));
-		campoCodigo.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		campoCodigo.setBounds(229, 299, 78, 16);
-		panel.add(campoCodigo);
+		campoNombre = new JTextField();
+		campoNombre.setForeground(new Color(255, 255, 255));
+		campoNombre.setBackground(new Color(153, 0, 0));
+		campoNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		campoNombre.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		campoNombre.setBounds(317, 206, 96, 19);
+		panel.add(campoNombre);
+		campoNombre.setColumns(10);
 		
-		textCodigo = new JTextField();
+		JLabel textCodigo = new JLabel("CODE:");
 		textCodigo.setHorizontalAlignment(SwingConstants.CENTER);
-		textCodigo.setForeground(Color.WHITE);
-		textCodigo.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textCodigo.setColumns(10);
-		textCodigo.setBackground(new Color(153, 0, 0));
-		textCodigo.setBounds(317, 297, 96, 19);
+		textCodigo.setForeground(new Color(153, 0, 0));
+		textCodigo.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		textCodigo.setBounds(229, 299, 78, 16);
 		panel.add(textCodigo);
 		
-		JLabel campoTipo = new JLabel("TYPE:");
-		campoTipo.setHorizontalAlignment(SwingConstants.CENTER);
-		campoTipo.setForeground(new Color(153, 0, 0));
-		campoTipo.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		campoTipo.setBounds(431, 208, 78, 16);
-		panel.add(campoTipo);
+		campoCodigo = new JTextField();
+		campoCodigo.setHorizontalAlignment(SwingConstants.CENTER);
+		campoCodigo.setForeground(Color.WHITE);
+		campoCodigo.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		campoCodigo.setColumns(10);
+		campoCodigo.setBackground(new Color(153, 0, 0));
+		campoCodigo.setBounds(317, 297, 96, 19);
+		panel.add(campoCodigo);
 		
-		textTipo = new JTextField();
+		JLabel textTipo = new JLabel("TYPE:");
 		textTipo.setHorizontalAlignment(SwingConstants.CENTER);
-		textTipo.setForeground(Color.WHITE);
-		textTipo.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textTipo.setColumns(10);
-		textTipo.setBackground(new Color(153, 0, 0));
-		textTipo.setBounds(534, 206, 96, 19);
+		textTipo.setForeground(new Color(153, 0, 0));
+		textTipo.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		textTipo.setBounds(431, 208, 78, 16);
 		panel.add(textTipo);
 		
-		JLabel campoStock = new JLabel("STOCK:");
-		campoStock.setHorizontalAlignment(SwingConstants.CENTER);
-		campoStock.setForeground(new Color(153, 0, 0));
-		campoStock.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		campoStock.setBounds(431, 299, 78, 16);
-		panel.add(campoStock);
+		campoTipo = new JTextField();
+		campoTipo.setHorizontalAlignment(SwingConstants.CENTER);
+		campoTipo.setForeground(Color.WHITE);
+		campoTipo.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		campoTipo.setColumns(10);
+		campoTipo.setBackground(new Color(153, 0, 0));
+		campoTipo.setBounds(534, 206, 96, 19);
+		panel.add(campoTipo);
 		
-		textStock = new JTextField();
+		JLabel textStock = new JLabel("STOCK:");
 		textStock.setHorizontalAlignment(SwingConstants.CENTER);
-		textStock.setForeground(Color.WHITE);
-		textStock.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textStock.setColumns(10);
-		textStock.setBackground(new Color(153, 0, 0));
-		textStock.setBounds(534, 297, 96, 19);
+		textStock.setForeground(new Color(153, 0, 0));
+		textStock.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		textStock.setBounds(431, 299, 78, 16);
 		panel.add(textStock);
+		
+		campoStock = new JTextField();
+		campoStock.setHorizontalAlignment(SwingConstants.CENTER);
+		campoStock.setForeground(Color.WHITE);
+		campoStock.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		campoStock.setColumns(10);
+		campoStock.setBackground(new Color(153, 0, 0));
+		campoStock.setBounds(534, 297, 96, 19);
+		panel.add(campoStock);
 	}
 }
