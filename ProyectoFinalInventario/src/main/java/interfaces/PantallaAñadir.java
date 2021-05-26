@@ -47,7 +47,7 @@ public class PantallaAñadir extends JPanel {
 		panelInferiorAdd.setBackground(new Color(153, 0, 0));
 		add(panelInferiorAdd, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("VOLVER");
+		JButton btnNewButton = new JButton("RETURN");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
