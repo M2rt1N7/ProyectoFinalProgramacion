@@ -47,7 +47,7 @@ public class PantallaProducto extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pruebas1dam", "root",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
 							"1018Flutox");
 					Statement st = conexion.createStatement();
 					
@@ -64,7 +64,6 @@ public class PantallaProducto extends JPanel {
 				
 				}
 				
-
 					st.close();
 					conexion.close();
 
@@ -80,15 +79,38 @@ public class PantallaProducto extends JPanel {
 		botonConsultar.setBounds(51, 20, 193, 21);
 		panelCentralInv.add(botonConsultar);
 
+		JList<Producto> listProducto = new JList<Producto>(listModel);
+		
 		JButton botonAñadir = new JButton("ADD STOCK");
+		botonAñadir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(listProducto.getSelectedIndex()!=-1) {
+					if(listProducto.getSelectedValue().getStock()!=0) {
+						listProducto.getSelectedValue().setStock((short)(listProducto.getSelectedValue().getStock() +1));
+						try {
+							Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
+									"1018Flutox");
+							Statement st = conexion.createStatement();
+							st.executeUpdate("update producto set stock = '" + listProducto.getSelectedValue().getStock() + "' where codigo = '" + listProducto.getSelectedValue().getCodigo() +"'");
+							st.close();
+							conexion.close();
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+					listProducto.setModel(listModel);
+				}
+				
+			}
+		});
 		botonAñadir.setBackground(new Color(153, 0, 0));
 		botonAñadir.setForeground(new Color(255, 255, 255));
 		botonAñadir.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonAñadir.setBounds(450, 20, 167, 21);
 		panelCentralInv.add(botonAñadir);
 
-		JList<Producto> listProducto = new JList<Producto>(listModel);
-		
 		JButton botonBorrar = new JButton("DELETE STOCK");
 		botonBorrar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -97,12 +119,22 @@ public class PantallaProducto extends JPanel {
 				if(listProducto.getSelectedIndex()!=-1) {
 					if(listProducto.getSelectedValue().getStock()!=0) {
 						listProducto.getSelectedValue().setStock((short)(listProducto.getSelectedValue().getStock() -1));
+						try {
+							Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
+									"1018Flutox");
+							Statement st = conexion.createStatement();
+							st.executeUpdate("update producto set stock = '" + listProducto.getSelectedValue().getStock() + "' where codigo = '" + listProducto.getSelectedValue().getCodigo() +"'");
+							st.close();
+							conexion.close();
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
-					System.out.println(listProducto.getSelectedValue().getStock());
 					listProducto.setModel(listModel);
 				}
-				
-			}
+					
+			}	
 		});
 		botonBorrar.setBackground(new Color(153, 0, 0));
 		botonBorrar.setForeground(new Color(255, 255, 255));

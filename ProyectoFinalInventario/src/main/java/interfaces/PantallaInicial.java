@@ -113,7 +113,7 @@ public class PantallaInicial extends JPanel {
 				String contrasenia = new String(campoContraseña.getPassword());
 				// Valida los datos introducidos con los de la base de datos
 				try {
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pruebas1dam", "root",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
 							"1018Flutox");
 					Statement st = conexion.createStatement();
 					// Cursor que guarda el resultado de la consulta
@@ -142,8 +142,8 @@ public class PantallaInicial extends JPanel {
 				}
 			}
 		});
-		BotonLogin.setForeground(new Color(255, 255, 255));
-		BotonLogin.setBackground(new Color(153, 0, 0));
+		BotonLogin.setForeground(new Color(153, 0, 0));
+		BotonLogin.setBackground(new Color(255, 255, 255));
 		panelInferior.add(BotonLogin);
 
 		JButton botonRegistro = new JButton("CHECK IN");
@@ -153,8 +153,8 @@ public class PantallaInicial extends JPanel {
 				ventana.irAPantallaRegistro();
 			}
 		});
-		botonRegistro.setForeground(new Color(255, 255, 255));
-		botonRegistro.setBackground(new Color(153, 0, 0));
+		botonRegistro.setForeground(new Color(153, 0, 0));
+		botonRegistro.setBackground(new Color(255, 255, 255));
 		panelInferior.add(botonRegistro);
 
 		JPanel panelSuperior = new JPanel();

@@ -107,8 +107,8 @@ public class PantallaRegistro extends JPanel {
 		add(panelInferior, BorderLayout.SOUTH);
 
 		JButton botonVolver = new JButton("RETURN");
-		botonVolver.setBackground(new Color(153, 0, 0));
-		botonVolver.setForeground(new Color(255, 255, 255));
+		botonVolver.setBackground(new Color(255, 255, 255));
+		botonVolver.setForeground(new Color(153, 0, 0));
 		botonVolver.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -120,9 +120,9 @@ public class PantallaRegistro extends JPanel {
 		// Hay que tener cuidado con el orden de las funciones, no reconoce lo que esta
 		// fuera del ambito por debajo
 		final JButton botonRegistro = new JButton("CHECK IN");
-		botonRegistro.setBackground(new Color(153, 0, 0));
+		botonRegistro.setBackground(new Color(255, 255, 255));
 		botonRegistro.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		botonRegistro.setForeground(new Color(255, 255, 255));
+		botonRegistro.setForeground(new Color(153, 0, 0));
 		botonRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nombre = campoUsuario.getText();
@@ -135,7 +135,7 @@ public class PantallaRegistro extends JPanel {
 					// El primer argumento es la cadena de conexion en String+servidor+puerto,
 					// El segundo argumento es la conexion, en este caso root
 					// El tercer argumento es la contraseña
-					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pruebas1dam", "root",
+					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
 							"1018Flutox");
 					// Statement realiza las consultas, insert, etc...
 					Statement st = conexion.createStatement();

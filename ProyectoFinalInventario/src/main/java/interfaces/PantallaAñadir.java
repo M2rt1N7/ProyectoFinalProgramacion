@@ -54,8 +54,8 @@ public class PantallaAñadir extends JPanel {
 				ventana.volverAPantallaProducto();
 			}
 		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(153, 0, 0));
+		btnNewButton.setForeground(new Color(153, 0, 0));
+		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		panelInferiorAdd.add(btnNewButton);
 		
@@ -68,10 +68,6 @@ public class PantallaAñadir extends JPanel {
 				String tipo = campoTipo.getText();
 				Short stock = Short.parseShort(campoStock.getText());
 				// Constructor de String que convierte un array en String
-				
-
-				
-					
 					Connection conexion;
 					try {
 						Producto actual = new Producto(nombre, codigo, tipo, stock);
@@ -80,7 +76,7 @@ public class PantallaAñadir extends JPanel {
 					// El segundo argumento es la conexion, en este caso root
 					// El tercer argumento es la contraseña
 						
-						conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pruebas1dam", "root",
+						conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
 								"1018Flutox");
 						// Statement realiza las consultas, insert, etc...
 					Statement st = conexion.createStatement();
@@ -106,8 +102,8 @@ public class PantallaAñadir extends JPanel {
 			}
 		  
 		});
-		botonAñadir.setBackground(new Color(153, 0, 0));
-		botonAñadir.setForeground(new Color(255, 255, 255));
+		botonAñadir.setBackground(new Color(255, 255, 255));
+		botonAñadir.setForeground(new Color(153, 0, 0));
 		botonAñadir.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		panelInferiorAdd.add(botonAñadir);
 		
