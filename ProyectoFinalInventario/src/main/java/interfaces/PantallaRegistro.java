@@ -56,7 +56,7 @@ public class PantallaRegistro extends JPanel {
 		panelSuperior.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(192, 192, 192)));
 		add(panelSuperior, BorderLayout.NORTH);
 
-		JLabel titulo = new JLabel("10DaysToDie S.A.");
+		JLabel titulo = new JLabel("AMMU-NATION INVENTORY S.A.");
 		titulo.setForeground(new Color(255, 255, 255));
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		titulo.setFont(new Font("Monospaced", Font.PLAIN, 20));
@@ -72,12 +72,12 @@ public class PantallaRegistro extends JPanel {
 		campoUsuario = new JTextField();
 		campoUsuario.setBackground(new Color(153, 0, 0));
 		campoUsuario.setForeground(new Color(255, 255, 255));
-		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 14));
 		campoUsuario.setBounds(476, 255, 114, 19);
 		panelCentral.add(campoUsuario);
 		campoUsuario.setColumns(10);
 
-		JLabel labelUsuario = new JLabel("USERNAME:");
+		JLabel labelUsuario = new JLabel("USER:");
 		labelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		labelUsuario.setForeground(new Color(153, 0, 0));
 		labelUsuario.setFont(new Font("Monospaced", Font.PLAIN, 20));
@@ -95,7 +95,7 @@ public class PantallaRegistro extends JPanel {
 		campoContraseña.setBackground(new Color(153, 0, 0));
 		campoContraseña.setForeground(new Color(255, 255, 255));
 		campoContraseña.setToolTipText("Introduce la contrase\u00F1a");
-		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 14));
 		campoContraseña.setBounds(476, 301, 114, 19);
 		panelCentral.add(campoContraseña);
 

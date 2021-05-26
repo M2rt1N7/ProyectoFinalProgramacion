@@ -47,7 +47,7 @@ public class PantallaInicial extends JPanel {
 
 		campoUsuario = new JTextField();
 		campoUsuario.setForeground(new Color(255, 255, 255));
-		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 14));
 		campoUsuario.setBackground(new Color(153, 0, 0));
 		campoUsuario.setToolTipText("Introduce tu nombre de usuario");
 		campoUsuario.setBounds(479, 330, 110, 20);
@@ -65,7 +65,7 @@ public class PantallaInicial extends JPanel {
 		campoContraseña = new JPasswordField();
 		campoContraseña.setBackground(new Color(153, 0, 0));
 		campoContraseña.setForeground(new Color(255, 255, 255));
-		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 10));
+		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 14));
 		campoContraseña.setToolTipText("Introduce tu contrase\u00F1a");
 		campoContraseña.setBounds(479, 371, 110, 20);
 		panelCentral.add(campoContraseña);
@@ -78,7 +78,7 @@ public class PantallaInicial extends JPanel {
 		labelContraseña.setBounds(315, 367, 143, 20);
 		panelCentral.add(labelContraseña);
 		
-		JLabel lblNewLabel = new JLabel("| | | AMMU-NATION | | |");
+		JLabel lblNewLabel = new JLabel("| | | AMMU-NATiON | | |");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(new Color(153, 0, 0));
 		lblNewLabel.setFont(new Font("Magneto", Font.BOLD, 40));
@@ -89,9 +89,13 @@ public class PantallaInicial extends JPanel {
 		lblNewLabel_1.setForeground(new Color(153, 0, 0));
 		lblNewLabel_1.setBackground(new Color(0, 0, 0));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Magneto", Font.PLAIN, 15));
+		lblNewLabel_1.setFont(new Font("Magneto", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(580, 218, 136, 21);
 		panelCentral.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(107, 113, 45, 13);
+		panelCentral.add(lblNewLabel_2);
 
 		JPanel panelInferior = new JPanel();
 		panelInferior.setForeground(new Color(0, 0, 0));
@@ -121,10 +125,10 @@ public class PantallaInicial extends JPanel {
 						contrasenia = resultado.getString("contrasenia");
 						// Modifica la variable de ventana
 						ventana.usuarioLogeado = new Usuario(usuario, contrasenia);
-						JOptionPane.showMessageDialog(ventana, "Welcome", "usuario", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(ventana, "Welcome mate!", "usuario", JOptionPane.INFORMATION_MESSAGE);
 						ventana.irAPantallaProducto();
 					} else {
-						JOptionPane.showMessageDialog(ventana, "invalid username or password", "Login",
+						JOptionPane.showMessageDialog(ventana, "ERROR: invalid username or password", "Login",
 								JOptionPane.ERROR_MESSAGE);
 					}
 
@@ -156,7 +160,7 @@ public class PantallaInicial extends JPanel {
 		panelSuperior.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(240, 240, 240)));
 		add(panelSuperior, BorderLayout.NORTH);
 
-		JLabel tituloPrincipal = new JLabel("10DaysToDie S.A.");
+		JLabel tituloPrincipal = new JLabel("AMMU-NATION INVENTORY S.A.");
 		tituloPrincipal.setForeground(new Color(255, 255, 255));
 		tituloPrincipal.setHorizontalAlignment(SwingConstants.CENTER);
 		tituloPrincipal.setFont(new Font("Monospaced", Font.PLAIN, 20));

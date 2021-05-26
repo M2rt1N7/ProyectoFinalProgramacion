@@ -1,17 +1,15 @@
 package clases;
 
 import java.time.LocalDateTime;
-
-import enumeraciones.TipoProducto;
 import excepciones.NombreIncorrectoException;
 
 public class Producto extends ElementoConDescripcion {
 
 	private String codigo;
-	private TipoProducto tipo;
+	private String tipo;
 	private short stock;
 
-	public Producto(String nombre, String codigo, TipoProducto tipo, short stock) throws NombreIncorrectoException {
+	public Producto(String nombre, String codigo, String tipo, short stock) throws NombreIncorrectoException {
 		super(nombre);
 		this.codigo = codigo;
 		this.tipo = tipo;
@@ -26,11 +24,11 @@ public class Producto extends ElementoConDescripcion {
 		this.codigo = codigo;
 	}
 
-	public TipoProducto getMarca() {
+	public String getMarca() {
 		return tipo;
 	}
 
-	public void setMarca(TipoProducto marca) {
+	public void setMarca(String marca) {
 		this.tipo = tipo;
 	}
 
