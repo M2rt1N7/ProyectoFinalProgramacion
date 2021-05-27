@@ -3,7 +3,7 @@ package clases;
 import excepciones.ContraseñaIncorrectaException;
 import excepciones.NombreIncorrectoException;
 
-public class Usuario extends ElementoConDescripcion {
+public class Usuario extends ElementoConNombre {
 
 	private String contraseña;
 

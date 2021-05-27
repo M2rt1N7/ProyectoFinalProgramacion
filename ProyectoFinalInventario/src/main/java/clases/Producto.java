@@ -3,7 +3,7 @@ package clases;
 import java.time.LocalDateTime;
 import excepciones.NombreIncorrectoException;
 
-public class Producto extends ElementoConDescripcion {
+public class Producto extends ElementoConNombre {
 
 	private String codigo;
 	private String tipo;

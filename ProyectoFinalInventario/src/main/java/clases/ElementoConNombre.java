@@ -2,13 +2,13 @@ package clases;
 
 import excepciones.NombreIncorrectoException;
 
-public class ElementoConDescripcion {
+public class ElementoConNombre {
 
 	private String nombre;
 	
 	
 	
-	public ElementoConDescripcion(String nombre) throws NombreIncorrectoException {
+	public ElementoConNombre(String nombre) throws NombreIncorrectoException {
 		super();
 		this.setNombre(nombre);
 	
