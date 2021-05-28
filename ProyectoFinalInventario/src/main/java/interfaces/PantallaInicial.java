@@ -46,6 +46,7 @@ public class PantallaInicial extends JPanel {
 		panelCentral.setLayout(null);
 
 		campoUsuario = new JTextField();
+		campoUsuario.setText("fede");
 		campoUsuario.setForeground(new Color(255, 255, 255));
 		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 14));
 		campoUsuario.setBackground(new Color(153, 0, 0));
@@ -63,6 +64,7 @@ public class PantallaInicial extends JPanel {
 		panelCentral.add(labelUsuario);
 
 		campoContraseña = new JPasswordField();
+		campoContraseña.setText("12345678");
 		campoContraseña.setBackground(new Color(153, 0, 0));
 		campoContraseña.setForeground(new Color(255, 255, 255));
 		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 14));

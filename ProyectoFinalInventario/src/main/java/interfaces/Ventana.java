@@ -160,5 +160,12 @@ public class Ventana extends JFrame {
 		//Hace visible la pantalla
 		this.pantallaProducto.setVisible(true);
 	}
+
+
+	public void setPantallaRegistro(PantallaRegistro pantallaRegistro) {
+		this.pantallaRegistro = pantallaRegistro;
+	}
+	
+	
 	
 }
