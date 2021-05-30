@@ -92,7 +92,7 @@ public class PantallaAñadir extends JPanel {
 					JOptionPane.showMessageDialog(ventana, "Producto registrado", "Usuario",
 							JOptionPane.INFORMATION_MESSAGE);
 					ventana.setPantallaRegistro(null);
-					ventana.irAPantallaProducto();
+					ventana.volverAPantallaProducto();
 						
 				} catch (SQLException | NombreIncorrectoException e1) {
 						// TODO Auto-generated catch block
