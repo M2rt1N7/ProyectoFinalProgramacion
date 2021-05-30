@@ -145,26 +145,6 @@ public class PantallaProducto extends JPanel {
 					}	
 				});
 					
-					/*	if(listproducto.getSelectedIndex()!=-1) {
-							if(listProducto.getSelectedValue().getStock()!=0) {
-								listProducto.getSelectedValue().setStock((short)(listProducto.getSelectedValue().getStock() +1));
-								try {
-									Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
-											"1018Flutox");
-									Statement st = conexion.createStatement();
-									st.executeUpdate("update producto set stock = '" + listProducto.getSelectedValue().getStock() + "' where codigo = '" + listProducto.getSelectedValue().getCodigo() +"'");
-									st.close();
-									conexion.close();
-								} catch (SQLException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-							}
-							listProducto.setModel(listModel);
-						}
-						
-					}
-				})*/
 				GridBagConstraints constraints_botonMasStock = new GridBagConstraints();
 				constraints_botonMasStock.gridx = 4;
 				constraints_botonMasStock.gridy = 0;
@@ -194,31 +174,6 @@ public class PantallaProducto extends JPanel {
 					}
 				});
 				
-				
-			/*  botonBorrar.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						//
-						if(listProducto.getSelectedIndex()!=-1) {
-							if(listProducto.getSelectedValue().getStock()!=0) {
-								listProducto.getSelectedValue().setStock((short)(listProducto.getSelectedValue().getStock() -1));
-								try {
-									Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
-											"1018Flutox");
-									Statement st = conexion.createStatement();
-									st.executeUpdate("update producto set stock = '" + listProducto.getSelectedValue().getStock() + "' where codigo = '" + listProducto.getSelectedValue().getCodigo() +"'");
-									st.close();
-									conexion.close();
-								} catch (SQLException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-							}
-							listProducto.setModel(listModel);
-						}
-							
-					}	
-				});*/
 				GridBagConstraints constraints_botonMenosStock = new GridBagConstraints();
 				constraints_botonMenosStock.gridx = 5;
 				constraints_botonMenosStock.gridy = 0;
@@ -293,21 +248,21 @@ public class PantallaProducto extends JPanel {
 		btnNewButton.setBounds(578, 463, 152, 21);
 		panelCentralInv.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("NOMBRE");
+		JLabel lblNewLabel = new JLabel("NAME");
 		lblNewLabel.setForeground(new Color(153, 0, 0));
 		lblNewLabel.setFont(new Font("Monospaced", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(95, 67, 74, 21);
 		panelCentralInv.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("CODIGO");
+		JLabel lblNewLabel_1 = new JLabel("CODE");
 		lblNewLabel_1.setForeground(new Color(153, 0, 0));
 		lblNewLabel_1.setFont(new Font("Monospaced", Font.BOLD, 20));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(261, 67, 74, 21);
 		panelCentralInv.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("TIPO");
+		JLabel lblNewLabel_2 = new JLabel("TYPE");
 		lblNewLabel_2.setForeground(new Color(153, 0, 0));
 		lblNewLabel_2.setFont(new Font("Monospaced", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -318,17 +273,9 @@ public class PantallaProducto extends JPanel {
 		lblNewLabel_3.setForeground(new Color(153, 0, 0));
 		lblNewLabel_3.setFont(new Font("Monospaced", Font.BOLD, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(656, 67, 74, 21);
+		lblNewLabel_3.setBounds(596, 67, 74, 21);
 		panelCentralInv.add(lblNewLabel_3);
 		
-		
-				
-			//	listProducto.setForeground(new Color(255, 255, 255));
-				//listProducto.setFont(new Font("Monospaced", Font.BOLD, 14));
-				//listProducto.setBackground(new Color(153, 0, 0));
-			
-			
-
 		JPanel panelSuperiorInv = new JPanel();
 		panelSuperiorInv.setForeground(new Color(255, 255, 255));
 		panelSuperiorInv.setBackground(new Color(153, 0, 0));
