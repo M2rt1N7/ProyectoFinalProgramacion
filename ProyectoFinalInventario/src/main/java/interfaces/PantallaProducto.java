@@ -88,7 +88,7 @@ public class PantallaProducto extends JPanel {
 				
 				JLabel labelNombreArma = new JLabel(actual.getNombre());
 				labelNombreArma.setForeground(new Color(255,255,255));
-				labelNombreArma.setFont(new Font("Monospaced", Font.BOLD, 14));
+				labelNombreArma.setFont(new Font("Monospaced", Font.BOLD, 13));
 				GridBagConstraints gbc_labelNombreArma = new GridBagConstraints();
 				gbc_labelNombreArma.insets = new Insets(0, 0, 0, 5);
 				gbc_labelNombreArma.gridx = 0;
@@ -97,7 +97,7 @@ public class PantallaProducto extends JPanel {
 				
 				JLabel labelCodigoArma = new JLabel(actual.getCodigo());
 				labelCodigoArma.setForeground(new Color(255,255,255));
-				labelCodigoArma.setFont(new Font("Monospaced", Font.BOLD, 14));
+				labelCodigoArma.setFont(new Font("Monospaced", Font.BOLD, 13));
 				GridBagConstraints gbc_labelCodigoArma = new GridBagConstraints();
 				gbc_labelCodigoArma.insets = new Insets(0, 0, 0, 5);
 				gbc_labelCodigoArma.gridx = 1;
@@ -106,7 +106,7 @@ public class PantallaProducto extends JPanel {
 				
 				JLabel labelTipoArma = new JLabel(actual.getMarca());
 				labelTipoArma.setForeground(new Color(255,255,255));
-				labelTipoArma.setFont(new Font("Monospaced", Font.BOLD, 14));
+				labelTipoArma.setFont(new Font("Monospaced", Font.BOLD, 13));
 				GridBagConstraints gbc_labelTipoArma = new GridBagConstraints();
 				gbc_labelTipoArma.insets = new Insets(0, 0, 0, 5);
 				gbc_labelTipoArma.gridx = 2;
@@ -115,17 +115,37 @@ public class PantallaProducto extends JPanel {
 				
 				JLabel labelStockArma = new JLabel(""+actual.getStock());
 				labelStockArma.setForeground(new Color(255,255,255));
-				labelStockArma.setFont(new Font("Monospaced", Font.BOLD, 14));
+				labelStockArma.setFont(new Font("Monospaced", Font.BOLD, 13));
 				GridBagConstraints gbc_labelStockArma = new GridBagConstraints();
 				gbc_labelStockArma.gridx = 3;
 				gbc_labelStockArma.gridy = 0;
 				panelInfoArma.add(labelStockArma, gbc_labelStockArma);
 
 				JButton botonMasStock=new JButton("+");
-				/*botonMasStock.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						if(listProducto.getSelectedIndex()!=-1) {
+				
+				botonMasStock.addMouseListener(new MouseAdapter() {
+				@Override
+					public void mouseClicked(MouseEvent e) { 
+						
+					actual.setStock((short)(actual.getStock()+1));
+					
+					labelStockArma.setText(""+ actual.getStock());
+					try {
+						Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
+								"1018Flutox");
+						Statement st = conexion.createStatement();
+						st.executeUpdate("update producto set stock = '" + actual.getStock() + "' where codigo = '" + actual.getCodigo() +"'");
+						st.close();
+						conexion.close();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					}	
+				});
+					
+					/*	if(listproducto.getSelectedIndex()!=-1) {
 							if(listProducto.getSelectedValue().getStock()!=0) {
 								listProducto.getSelectedValue().setStock((short)(listProducto.getSelectedValue().getStock() +1));
 								try {
@@ -144,7 +164,7 @@ public class PantallaProducto extends JPanel {
 						}
 						
 					}
-				});*/
+				})*/
 				GridBagConstraints constraints_botonMasStock = new GridBagConstraints();
 				constraints_botonMasStock.gridx = 4;
 				constraints_botonMasStock.gridy = 0;
@@ -152,7 +172,30 @@ public class PantallaProducto extends JPanel {
 				
 
 				JButton botonMenosStock=new JButton("-");
-				/*botonBorrar.addMouseListener(new MouseAdapter() {
+				botonMenosStock.addMouseListener(new MouseAdapter() {
+					
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						if(actual.getStock()!=0) {
+							actual.setStock((short)(actual.getStock() -1));
+							labelStockArma.setText(""+ actual.getStock());
+							try {
+								Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
+										"1018Flutox");
+								Statement st = conexion.createStatement();
+								st.executeUpdate("update producto set stock = '" + actual.getStock() + "' where codigo = '" + actual.getCodigo() +"'");
+								st.close();
+								conexion.close();
+							} catch (SQLException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+						}	
+					}
+				});
+				
+				
+			/*  botonBorrar.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						//
@@ -182,6 +225,24 @@ public class PantallaProducto extends JPanel {
 				panelInfoArma.add(botonMenosStock, constraints_botonMenosStock);
 
 				JButton botonBorrar=new JButton("X");
+				botonBorrar.addMouseListener(new MouseAdapter() {
+					
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						try {
+							Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
+									"1018Flutox");
+							Statement st = conexion.createStatement();
+							st.executeUpdate("delete from producto where codigo = '" + actual.getCodigo() +"'");
+							st.close();
+							conexion.close();
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						ventana.volverAPantallaProducto();
+						}
+					});
 				GridBagConstraints constraints_botonBorrar = new GridBagConstraints();
 				constraints_botonBorrar.gridx = 6;
 				constraints_botonBorrar.gridy = 0;
@@ -257,7 +318,7 @@ public class PantallaProducto extends JPanel {
 		lblNewLabel_3.setForeground(new Color(153, 0, 0));
 		lblNewLabel_3.setFont(new Font("Monospaced", Font.BOLD, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(591, 67, 74, 21);
+		lblNewLabel_3.setBounds(656, 67, 74, 21);
 		panelCentralInv.add(lblNewLabel_3);
 		
 		

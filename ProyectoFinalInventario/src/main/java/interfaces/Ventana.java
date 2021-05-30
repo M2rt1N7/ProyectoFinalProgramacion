@@ -146,7 +146,8 @@ public class Ventana extends JFrame {
 	}
 	
 	public void volverAPantallaProducto() {
-		
+		this.pantallaProducto.setVisible(false);
+		this.pantallaProducto = null;
 		//Oculta la pantalla anterior
 		if(this.pantallaProducto==null) {
 			this.pantallaProducto=new PantallaProducto(this);
