@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 
 import clases.Usuario;
 
+/**
+ * Clase que modela la interfaz Ventana en la que realizamos todos los procesos de ir de una interfaz a otra en nuestro programa
+ * @author Fede
+ *
+ */
 public class Ventana extends JFrame {
 	
 	//Pantallas
@@ -78,6 +83,9 @@ public class Ventana extends JFrame {
 		this.pantallaRegistro.setVisible(true);
 	}
 	
+	/**
+	 * Método que hace volver a la pantalla inicial
+	 */
 	public void volver() {
 		
 		//Oculta la pantalla anterior
@@ -94,8 +102,11 @@ public class Ventana extends JFrame {
 		this.pantallaInicial.setVisible(true);
 	}
 	
+	/**
+	 * Método que hace volver a la pantalla incial desde producto
+	 */
 	public void volverDesdeProducto() {
-		
+		this.pantallaAñadir=null;
 		//Oculta la pantalla anterior
 		if(this.pantallaInicial==null) {
 			this.pantallaInicial=new PantallaInicial(this);
@@ -111,7 +122,7 @@ public class Ventana extends JFrame {
 	}
 	
 	/**
-	 * Método que dirige a la pantalla de registro
+	 * Método que dirige a la pantalla de producto
 	 */
 	public void irAPantallaProducto() {
 		//Si entra lo inicializa para que no de null pointer
@@ -129,6 +140,9 @@ public class Ventana extends JFrame {
 		this.pantallaProducto.setVisible(true);
 	}
 	
+	/**
+	 * Método que dirige a la pantalla añadir
+	 */
 	public void irAPantallaAñadir() {
 		//Si entra lo inicializa para que no de null pointer
 		if(this.pantallaAñadir==null) {
@@ -145,6 +159,9 @@ public class Ventana extends JFrame {
 		this.pantallaAñadir.setVisible(true);
 	}
 	
+	/**
+	 * Método que dirige a la pantalla producto desde pantalla añadir
+	 */
 	public void volverAPantallaProducto() {
 		this.pantallaProducto.setVisible(false);
 		this.pantallaProducto = null;
@@ -161,7 +178,6 @@ public class Ventana extends JFrame {
 		//Hace visible la pantalla
 		this.pantallaProducto.setVisible(true);
 	}
-
 
 	public void setPantallaRegistro(PantallaRegistro pantallaRegistro) {
 		this.pantallaRegistro = pantallaRegistro;

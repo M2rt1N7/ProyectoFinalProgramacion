@@ -22,7 +22,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Clase que modela la interfaz de pantallaAñadir cuya finalidad es la de poder añadir un producto nuevo al inventario
+ * @author Fede
+ *
+ */
 public class PantallaAñadir extends JPanel {
+	
 	private Ventana ventana;
 	private JTextField campoNombre;
 	private JTextField campoCodigo;

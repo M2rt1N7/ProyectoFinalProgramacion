@@ -29,12 +29,20 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
+/**
+ * Clase que modela la interfaz PantallaInicial en la que podemos registrarnos con un usuario y una contraseña
+ * @author Fede
+ *
+ */
 public class PantallaInicial extends JPanel {
 	private JTextField campoUsuario;
 	private JPasswordField campoContraseña;
-	// Apunta a la ventana que la ha llamado
 	private Ventana ventana;
-
+	
+	/**
+	 * Constructor de PantallaInicial 
+	 * @param v ventana a la que apunta
+	 */
 	public PantallaInicial(Ventana v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -46,7 +54,7 @@ public class PantallaInicial extends JPanel {
 		panelCentral.setLayout(null);
 
 		campoUsuario = new JTextField();
-		campoUsuario.setText("fede");
+		campoUsuario.setText("");
 		campoUsuario.setForeground(new Color(255, 255, 255));
 		campoUsuario.setFont(new Font("Monospaced", Font.BOLD, 14));
 		campoUsuario.setBackground(new Color(153, 0, 0));
@@ -64,7 +72,7 @@ public class PantallaInicial extends JPanel {
 		panelCentral.add(labelUsuario);
 
 		campoContraseña = new JPasswordField();
-		campoContraseña.setText("12345678");
+		campoContraseña.setText("");
 		campoContraseña.setBackground(new Color(153, 0, 0));
 		campoContraseña.setForeground(new Color(255, 255, 255));
 		campoContraseña.setFont(new Font("Monospaced", Font.BOLD, 14));
@@ -103,6 +111,10 @@ public class PantallaInicial extends JPanel {
 		JButton BotonLogin = new JButton("LOG IN");
 		BotonLogin.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		BotonLogin.addActionListener(new ActionListener() {
+
+			/**
+			 * Evento con el cual nos logeamos en el sistemaS
+			 */
 			public void actionPerformed(ActionEvent e) {
 				// Captura los datos del formulario de ingreso
 				String usuario = campoUsuario.getText();

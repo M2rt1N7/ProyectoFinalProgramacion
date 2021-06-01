@@ -42,11 +42,21 @@ import javax.swing.JList;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
 
+/**
+ * Clase que modela la interfaz de PantallaRegistro en la que podemos registrar un nuevo usuario con su respectiva 
+ * contraseña
+ * @author Fede
+ *
+ */
 public class PantallaRegistro extends JPanel {
 	private JTextField campoUsuario;
 	private JPasswordField campoContraseña;
 	private Ventana ventana;
 
+	/**
+	 * Constructor PantallaRegistro
+	 * @param v ventana a la que apunta
+	 */
 	public PantallaRegistro(Ventana v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -117,36 +127,32 @@ public class PantallaRegistro extends JPanel {
 		});
 		panelInferior.add(botonVolver);
 
-		// Hay que tener cuidado con el orden de las funciones, no reconoce lo que esta
-		// fuera del ambito por debajo
 		final JButton botonRegistro = new JButton("CHECK IN");
 		botonRegistro.setBackground(new Color(255, 255, 255));
 		botonRegistro.setFont(new Font("Monospaced", Font.PLAIN, 10));
 		botonRegistro.setForeground(new Color(153, 0, 0));
 		botonRegistro.addActionListener(new ActionListener() {
+			
+			/**
+			 * Evento que al pulsarlo registra el usuario y contraseña
+			 */
 			public void actionPerformed(ActionEvent e) {
 				String nombre = campoUsuario.getText();
-				// Constructor de String que convierte un array en String
+
 				String contrasenia = new String(campoContraseña.getPassword());
 
 				try {
 					Usuario actual = new Usuario(nombre, contrasenia);
-					// Conexion a MySQL, hay que pegar la dependencia en el pom.xml
-					// El primer argumento es la cadena de conexion en String+servidor+puerto,
-					// El segundo argumento es la conexion, en este caso root
-					// El tercer argumento es la contraseña
 					Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
 							"1018Flutox");
-					// Statement realiza las consultas, insert, etc...
+
 					Statement st = conexion.createStatement();
-					// executeupdate realiza insert update etc
-					// executequery solo realiza consultas
-					// Se introduce el insert tal como se hace en MySQL
+
 					st.executeUpdate("insert into usuario values('" + nombre + "', '" + contrasenia + "')");
 
-					// Hay que cerrar el Statement antes de cerrar la conexion
+
 					st.close();
-					// Cierra la conexion
+
 					conexion.close();
 					JOptionPane.showMessageDialog(ventana, "Usuario registrado", "Usuario",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -165,8 +171,6 @@ public class PantallaRegistro extends JPanel {
 		botonRegistro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// botonRegistro.setBackground(new Color(200, 0, 0));
-				// botonRegistro.setForeground(new Color(255, 255, 255));
 			}
 
 			@Override

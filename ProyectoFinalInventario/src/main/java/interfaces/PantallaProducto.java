@@ -29,10 +29,21 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * Clase que modela la interfaz PantallaProducto en la que podemos visualizar un inventario con todos los productos que tenemos en nuestra
+ * base de datos, a éstos podemos aumentarle o disminuirle el stock disponible y por otro lado podemos eliminar el producto del inventario y 
+ * por ende de la base de datos
+ * @author Fede
+ *
+ */
 public class PantallaProducto extends JPanel {
 
 	private Ventana ventana;
 
+	/**
+	 * Contructor PantallaProducto
+	 * @param v ventana a la que apunta
+	 */
 	public PantallaProducto(Ventana v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -125,6 +136,10 @@ public class PantallaProducto extends JPanel {
 				
 				botonMasStock.addMouseListener(new MouseAdapter() {
 				@Override
+				
+				/**
+				 * Evento que cada vez que clicamos aumentamos el stock en 1  
+				 */
 					public void mouseClicked(MouseEvent e) { 
 						
 					actual.setStock((short)(actual.getStock()+1));
@@ -155,6 +170,10 @@ public class PantallaProducto extends JPanel {
 				botonMenosStock.addMouseListener(new MouseAdapter() {
 					
 					@Override
+					
+					/**
+					 * Evento que cada vez que clicamos disminuimos el stock en 1 
+					 */
 					public void mouseClicked(MouseEvent e) {
 						if(actual.getStock()!=0) {
 							actual.setStock((short)(actual.getStock() -1));
@@ -183,6 +202,10 @@ public class PantallaProducto extends JPanel {
 				botonBorrar.addMouseListener(new MouseAdapter() {
 					
 					@Override
+					
+					/**
+					 * Evento que al clicarlo borramos el producto
+					 */
 					public void mouseClicked(MouseEvent e) {
 						try {
 							Connection conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/inventario", "root",
