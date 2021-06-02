@@ -144,6 +144,7 @@ public class Ventana extends JFrame {
 	 * Método que dirige a la pantalla añadir
 	 */
 	public void irAPantallaAñadir() {
+		this.pantallaAñadir=null;
 		//Si entra lo inicializa para que no de null pointer
 		if(this.pantallaAñadir==null) {
 			this.pantallaAñadir=new PantallaAñadir(this);
