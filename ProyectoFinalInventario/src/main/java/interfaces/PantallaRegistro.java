@@ -175,8 +175,6 @@ public class PantallaRegistro extends JPanel {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				botonRegistro.setBackground(null);
-				botonRegistro.setForeground(null);
 			}
 		});
 		panelInferior.add(botonRegistro);
