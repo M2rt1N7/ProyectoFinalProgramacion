@@ -5,9 +5,6 @@ create table usuario(
     contrasenia varchar(100)
 );
 
-INSERT INTO usuario (nombre,contrasenia)
-VALUES ('fede','12345678');
-
 create table producto(
   nombre varchar(100) ,
   codigo varchar(100) primary key,

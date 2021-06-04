@@ -38,7 +38,6 @@ import java.awt.Insets;
  */
 public class PantallaProducto extends JPanel {
 
-	/*referencia a la ventana principal */
 	private Ventana ventana;
 
 	/**
