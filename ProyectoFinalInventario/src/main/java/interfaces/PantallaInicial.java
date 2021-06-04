@@ -97,7 +97,7 @@ public class PantallaInicial extends JPanel {
 		labelContraseña.setBounds(315, 367, 143, 20);
 		panelCentral.add(labelContraseña);
 		
-		JLabel lblNewLabel = new JLabel("| | |  AMMU-NATiON  | | |");
+		JLabel lblNewLabel = new JLabel("| | |  AMMU-NATi  N  | | |");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(new Color(153, 0, 0));
 		lblNewLabel.setFont(new Font("Magneto", Font.BOLD, 40));
@@ -111,6 +111,12 @@ public class PantallaInicial extends JPanel {
 		lblNewLabel_1.setFont(new Font("Magneto", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(580, 218, 136, 21);
 		panelCentral.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Fede\\Desktop\\PROYECTOFINALPROGRAMACION\\ProyectoFinalInventario\\Imagenes\\objetivoarma.png"));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(569, 168, 61, 55);
+		panelCentral.add(lblNewLabel_2);
 
 		JPanel panelInferior = new JPanel();
 		panelInferior.setForeground(new Color(0, 0, 0));
