@@ -23,7 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Clase que modela la interfaz de pantallaAñadir cuya finalidad es la de poder añadir un producto nuevo al inventario
+ * Clase que modela la interfaz de PantallaAñadir cuya finalidad es la de poder añadir un producto nuevo al inventario
  * @author Fede
  *
  */
@@ -68,6 +68,10 @@ public class PantallaAñadir extends JPanel {
 		JButton botonAñadir = new JButton("ADD PRODUCT");
 		botonAñadir.addMouseListener(new MouseAdapter() {
 			@Override
+			
+			/**
+			 * Evento que al pulsarlo inserta un producto nuevo en el programa 
+			 */
 			public void mouseClicked(MouseEvent e) {
 				String nombre = campoNombre.getText();
 				String codigo = campoCodigo.getText();

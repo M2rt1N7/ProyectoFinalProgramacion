@@ -15,7 +15,7 @@ public class ElementoConNombre {
 	
 	
 	/**
-	 * Constructor de la excepcion 
+	 * Constructor de ElementoConNombre
 	 * @param nombre nombre del elemento
 	 * @throws NombreIncorrectoException la excepcion que se lanza cuando el nombre es incorrecto
 	 */

@@ -138,7 +138,7 @@ public class PantallaProducto extends JPanel {
 				@Override
 				
 				/**
-				 * Evento que cada vez que clicamos aumentamos el stock en 1  
+				 * Evento que cada vez que clicamos aumenta el stock en 1  
 				 */
 					public void mouseClicked(MouseEvent e) { 
 						
@@ -172,7 +172,7 @@ public class PantallaProducto extends JPanel {
 					@Override
 					
 					/**
-					 * Evento que cada vez que clicamos disminuimos el stock en 1 
+					 * Evento que cada vez que clicamos disminuye el stock en 1 
 					 */
 					public void mouseClicked(MouseEvent e) {
 						if(actual.getStock()!=0) {
@@ -204,7 +204,7 @@ public class PantallaProducto extends JPanel {
 					@Override
 					
 					/**
-					 * Evento que al clicarlo borramos el producto
+					 * Evento que al clicarlo borra el producto de la tabla y por ende de la base de datos
 					 */
 					public void mouseClicked(MouseEvent e) {
 						try {

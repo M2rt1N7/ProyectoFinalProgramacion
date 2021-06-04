@@ -113,7 +113,7 @@ public class PantallaInicial extends JPanel {
 		BotonLogin.addActionListener(new ActionListener() {
 
 			/**
-			 * Evento con el cual nos logeamos en el sistemaS
+			 * Evento con el cual nos logeamos en el sistema
 			 */
 			public void actionPerformed(ActionEvent e) {
 				// Captura los datos del formulario de ingreso
