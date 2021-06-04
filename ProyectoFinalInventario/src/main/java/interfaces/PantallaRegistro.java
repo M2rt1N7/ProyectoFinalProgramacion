@@ -49,8 +49,17 @@ import javax.swing.SwingConstants;
  *
  */
 public class PantallaRegistro extends JPanel {
+	/**
+	 * Campo donde introducimos el nombre del usuario que queremos registar en el sistema
+	 */
 	private JTextField campoUsuario;
+	/**
+	 * Campo donde introducimos la contraseña del usuario que queremos registrar en el sistema
+	 */
 	private JPasswordField campoContraseña;
+	/**
+	 * Variable de la interfaz Ventana
+	 */
 	private Ventana ventana;
 
 	/**
@@ -175,8 +184,6 @@ public class PantallaRegistro extends JPanel {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				botonRegistro.setBackground(null);
-				botonRegistro.setForeground(null);
 			}
 		});
 		panelInferior.add(botonRegistro);

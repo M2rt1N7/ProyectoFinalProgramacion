@@ -28,12 +28,30 @@ import java.sql.Statement;
  *
  */
 public class PantallaAñadir extends JPanel {
-	
+	/**
+	 * Variable de la interfaz ventana
+	 */
 	private Ventana ventana;
+	/**
+	 * Campo donde introducimos el nombre del nuevo producto que queremos añadir a nuestro inventario
+	 */
 	private JTextField campoNombre;
+	/**
+	 * Campo donde introducimos el codigo del nuevo producto que queremos añadir a nuestro inventario
+	 */
 	private JTextField campoCodigo;
+	/**
+	 * Campo donde introducimos el codigo del nuevo producto que queremos añadir a nuestro inventario
+	 */
 	private JTextField campoTipo;
+	/**
+	 * Campo donde introducimos el numero de stock del producto que queremos añadir a nuestro inventario
+	 */
 	private JTextField campoStock;
+	/**
+	 * Constructor de PantallaAñadir
+	 * @param v ventana a la que apunta
+	 */
 	public PantallaAñadir(Ventana v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -99,7 +117,7 @@ public class PantallaAñadir extends JPanel {
 					st.close();
 					// Cierra la conexion
 					conexion.close();
-					JOptionPane.showMessageDialog(ventana, "Producto registrado", "Usuario",
+					JOptionPane.showMessageDialog(ventana, "Registered product", "Usuario",
 							JOptionPane.INFORMATION_MESSAGE);
 					ventana.setPantallaRegistro(null);
 					ventana.volverAPantallaProducto();
@@ -107,6 +125,8 @@ public class PantallaAñadir extends JPanel {
 				} catch (SQLException | NombreIncorrectoException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						JOptionPane.showMessageDialog(ventana, "Insert name", "Usuario",
+								JOptionPane.ERROR_MESSAGE);
 					}
 					
 			 

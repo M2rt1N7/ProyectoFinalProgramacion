@@ -16,12 +16,22 @@ import clases.Usuario;
  */
 public class Ventana extends JFrame {
 	
-	//Pantallas
-	//Variable de la pantalla inicial que estamos diseñando
+	
+	/**
+	 * Variable de la pantalla inicial donde logeamos usuario
+	 */
 	private PantallaInicial pantallaInicial;
-	//Variable de la pantalla de registro
+	/**
+	 * Variable de la pantalla de registro de usuario
+	 */
 	private PantallaRegistro pantallaRegistro;
+	/**
+	 * Variable de la pantalla de productos
+	 */
 	private PantallaProducto pantallaProducto;
+	/**
+	 * Variable de la pantalla de añadir productos
+	 */
 	private PantallaAñadir pantallaAñadir;
 	//Para que haya persistencia en toda las ventanas
 	protected Usuario usuarioLogeado;

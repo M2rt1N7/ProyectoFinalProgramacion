@@ -11,7 +11,7 @@ import excepciones.NombreIncorrectoException;
 public class Usuario extends ElementoConNombre {
 
 	/**
-	 * contraseña del usuario
+	 * Variable que indica la contraseña del usuario
 	 */
 	private String contraseña;
 

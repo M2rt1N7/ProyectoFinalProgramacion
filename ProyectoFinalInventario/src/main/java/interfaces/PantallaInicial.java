@@ -35,8 +35,17 @@ import java.awt.SystemColor;
  *
  */
 public class PantallaInicial extends JPanel {
+	/**
+	 * Campo donde introducimos el nombre del usuario que queremos logear en el sistema
+	 */
 	private JTextField campoUsuario;
+	/**
+	 * Campo donde introducimos la contraseña del usuario que queremos logear en el sistema
+	 */
 	private JPasswordField campoContraseña;
+	/**
+	 * Variable de la interfaz ventana
+	 */
 	private Ventana ventana;
 	
 	/**

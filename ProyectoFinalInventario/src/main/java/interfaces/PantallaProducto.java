@@ -38,6 +38,9 @@ import java.awt.Insets;
  */
 public class PantallaProducto extends JPanel {
 
+	/**
+	 * Variable de la interfaz Ventana
+	 */
 	private Ventana ventana;
 
 	/**

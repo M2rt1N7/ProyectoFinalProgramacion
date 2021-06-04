@@ -10,17 +10,17 @@ import excepciones.NombreIncorrectoException;
  */
 public class Producto extends ElementoConNombre {
 	/**
-	 * indica el codigo del producto
+	 * Variable que indica el codigo del producto
 	 */
 	private String codigo;
 	
 	/**
-	 * indica el tipo de producto que es
+	 * Variable que indica el tipo de producto que es
 	 */
 	private String tipo;
 	
 	/**
-	 * indica si hay existencias de stock o no del producto
+	 * Variable que indica el numero de existencias de stock del producto
 	 */
 	private short stock;
 

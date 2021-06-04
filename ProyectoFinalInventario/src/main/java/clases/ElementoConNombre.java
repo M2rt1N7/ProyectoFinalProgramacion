@@ -9,7 +9,7 @@ import excepciones.NombreIncorrectoException;
 public class ElementoConNombre {
 
 	/**
-	 * Nombre del elemento
+	 * Variable que indica el nombre del elemento
 	 */
 	private String nombre;
 	
