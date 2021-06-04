@@ -97,7 +97,7 @@ public class Ventana extends JFrame {
 	 * Método que hace volver a la pantalla inicial
 	 */
 	public void volver() {
-		
+		this.pantallaRegistro=null;
 		//Oculta la pantalla anterior
 		if(this.pantallaInicial==null) {
 			this.pantallaInicial=new PantallaInicial(this);
