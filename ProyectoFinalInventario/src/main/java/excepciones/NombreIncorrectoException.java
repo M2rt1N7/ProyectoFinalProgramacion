@@ -8,7 +8,7 @@ package excepciones;
 public class NombreIncorrectoException extends Exception {
 
 	/**
-	 * Constructor que recibe un mensaje de excepcion
+	 * Constructor de NombreIncorrectoException que recibe un mensaje de excepcion
 	 * @param msg mensaje que se lanza cuando se produce la excepcion
 	 */
 	public NombreIncorrectoException(String msg) {

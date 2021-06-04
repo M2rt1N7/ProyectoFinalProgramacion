@@ -8,7 +8,7 @@ package excepciones;
 public class ContraseñaIncorrectaException extends Exception {
 
 	/**
-	 * Constructor que recibe un mensaje de excepcion
+	 * Constructor de ContraseñaIncorrectaException que recibe un mensaje de excepcion
 	 * @param msg mensaje que se lanza cuando hay una excepcion
 	 */
 	public ContraseñaIncorrectaException(String msg) {
