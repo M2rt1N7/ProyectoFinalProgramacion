@@ -273,30 +273,30 @@ public class PantallaProducto extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("NAME");
 		lblNewLabel.setForeground(new Color(153, 0, 0));
-		lblNewLabel.setFont(new Font("Monospaced", Font.BOLD, 20));
+		lblNewLabel.setFont(new Font("Magneto", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(95, 67, 74, 21);
+		lblNewLabel.setBounds(95, 67, 92, 21);
 		panelCentralInv.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("CODE");
 		lblNewLabel_1.setForeground(new Color(153, 0, 0));
-		lblNewLabel_1.setFont(new Font("Monospaced", Font.BOLD, 20));
+		lblNewLabel_1.setFont(new Font("Magneto", Font.BOLD, 20));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(261, 67, 74, 21);
 		panelCentralInv.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("TYPE");
 		lblNewLabel_2.setForeground(new Color(153, 0, 0));
-		lblNewLabel_2.setFont(new Font("Monospaced", Font.BOLD, 20));
+		lblNewLabel_2.setFont(new Font("Magneto", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(434, 67, 74, 21);
 		panelCentralInv.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("STOCK");
 		lblNewLabel_3.setForeground(new Color(153, 0, 0));
-		lblNewLabel_3.setFont(new Font("Monospaced", Font.BOLD, 20));
+		lblNewLabel_3.setFont(new Font("Magneto", Font.BOLD, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(596, 67, 74, 21);
+		lblNewLabel_3.setBounds(596, 67, 92, 21);
 		panelCentralInv.add(lblNewLabel_3);
 		
 		JPanel panelSuperiorInv = new JPanel();
